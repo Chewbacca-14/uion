@@ -1,0 +1,26 @@
+
+<div class="main-content">
+  <h2>Naše Služby</h2>
+  <p>Jsme nadšenci do IT a technologií, kteří věří, že inovace mají sílu měnit svět. S vášní pro technologie a neustálou touhou objevovat nové možnosti se snažíme přinášet svěží a efektivní řešení do IT světa. </p>
+  <div class="card-grid">
+  <app-product-card
+    *ngFor="let card of cards"
+    [icon]="card.icon"
+    [title]="card.title"
+    [description]="card.description"
+  ></app-product-card>
+</div>
+<div class="action-card">
+  <div class="action-card-left">
+    <h2>Proměňte svůj nápad ve skutečnost s námi.</h2>
+    <p>Ozvěte se nám a posuňme váš projekt dál.</p>
+    <button class="btn-secondary">Pojďme na to</button>
+  </div>
+  <div class="action-card-right">
+     <img class="img1" src="../../../assets/icons/km.png" alt="Visual" />
+      <img class="img2" src="../../../assets/icons/pb.png" alt="Visual" />
+    <img class="img3" src="../../../assets/icons/pgp.png" alt="Visual" />
+  </div>
+</div>
+</div>
+

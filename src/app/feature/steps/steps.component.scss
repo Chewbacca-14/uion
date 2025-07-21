@@ -1,0 +1,88 @@
+.after-header-text {
+  padding: 2rem;
+  text-align: center;
+
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  max-width: fit-content;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 70px); /* максимум 3 колонки */
+  gap: 200px;
+  position: relative;
+  z-index: 1;
+  justify-items: center;
+  justify-content: center; /* центрируем всю сетку */
+
+  @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 70px); /* при < 992px — 2 колонки */
+      gap: 200px;
+
+  }
+
+  @media (max-width: 576px) {
+      grid-template-columns: 70px; /* при < 576px — 1 колонка */
+      gap: 200px;
+
+  }
+}
+
+
+.step {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ECEDEE;
+  border-radius: 50%;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0px 0px 20px 1px #0000000D;
+
+  &.border-light{
+    border: 2.1px solid #5FA8FF;
+    box-shadow: 0px 0px 20px 0.5px #4F9FFF4D;
+  }
+
+  .tool{
+    position: absolute;
+    top: 80px;
+    width: max-content;
+
+    .titlee{
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0;
+      text-align: center;
+      margin-bottom: 9px;
+    }
+
+    .desc{
+      max-width: 140px;
+      font-weight: 400;
+      font-size: 9.5px;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 12px;
+    }
+  }
+}
+
+svg.connector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  z-index: 0;
+  pointer-events: none;
+}

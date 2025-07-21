@@ -1,0 +1,111 @@
+.carousel-row-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1375px;
+  gap: 15px;
+}
+
+@media (max-width: 900px) {
+  .carousel-row-wrapper {
+    max-width: 630px;
+  }
+}
+
+/* Responsive: 1 column on small screens */
+@media (max-width: 600px) {
+  .carousel-row-wrapper {
+    max-width: 90%;
+    margin-right: 20px;
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px; // Width of the fade effect
+    z-index: 2;
+    pointer-events: none; // Let mouse events pass through
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      #fcfcfc,
+      transparent
+    ); // Adjust background color if needed
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      #fcfcfc,
+      transparent
+    ); // Adjust background color if needed
+  }
+}
+
+.carousel {
+  display: flex;
+  width: max-content;
+}
+
+.scroll-right .carousel {
+  animation: scroll-right 20s linear infinite;
+}
+
+.scroll-left .carousel {
+  animation: scroll-left 20s linear infinite;
+}
+
+.carousel-item {
+  border: 1px solid #ecedee;
+  border-radius: 0.75rem;
+  flex: 0 0 auto;
+  display: flex;
+  padding: 17px 35px;
+  align-items: center;
+  margin-right: 40px;
+  font-family: "Generalsans", sans-serif;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f5f6f8;
+  font-family: "Generalsans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #242424;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

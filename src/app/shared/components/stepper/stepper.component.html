@@ -1,0 +1,10 @@
+<mat-vertical-stepper #stepper>
+  <mat-step
+    onFocus
+    *ngFor="let step of steps; let i = index"
+    [label]="step.label"
+    (mouseover)="onStepHover(stepper, i)">
+    <p class="matStepId"
+    >{{ step.content }}</p>
+  </mat-step>
+</mat-vertical-stepper>

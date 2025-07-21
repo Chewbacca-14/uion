@@ -1,0 +1,219 @@
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-content {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  color: #242424;
+  margin-bottom: 20px;
+  animation: fadeInSlide 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+p {
+  align-items: center;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: center;
+  animation: fadeInSlide 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+  margin: 0 auto;
+  justify-content: center;
+  animation: fadeInSlide 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Responsive: 2 columns on medium screens */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+}
+
+/* Responsive: 1 column on small screens */
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    padding: 10px 20px;
+  }
+}
+
+/* ------------------ ACTION CARD ------------------ */
+
+.action-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f5f6f8;
+  background-image: url("../../../assets/icons/grid-bg.svg");
+  background-size: contain;
+  background-position: center;
+  border: 1px solid #ecedee;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.action-card h2 {
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  color: #242424;
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.action-card p {
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  text-align: left;
+}
+
+.btn-secondary {
+  height: 44px;
+  padding: 0 24px;
+  background-color: transparent;
+  color: #242424;
+  border: 1px solid #242424;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: scale(0.96);
+  cursor: pointer;
+}
+
+.action-card-right .img1 {
+  height: 280px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.action-card-right .img2 {
+  height: 330px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  animation: slideUp 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.action-card-right .img3 {
+  height: 380px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  animation: slideUp 1.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Responsive for action card layout and typography */
+
+@media (max-width: 900px) {
+  .action-card {
+    max-width: 630px;
+    padding: 17px 60px;
+    flex-direction: column;
+  }
+
+  .action-card h2 {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    width: 100%;
+  }
+
+  .action-card p {
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+    text-align: left;
+  }
+
+  .action-card-right {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .action-card {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 15px 30px;
+  }
+
+  .action-card h2 {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    width: 100%;
+  }
+
+  .action-card p {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    text-align: left;
+  }
+}

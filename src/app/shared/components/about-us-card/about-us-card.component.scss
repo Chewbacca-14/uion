@@ -1,0 +1,54 @@
+.card {
+  border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.card-name {
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: "Generalsans", sans-serif;
+  letter-spacing: 0.32px;
+  margin-bottom: 0.75rem;
+}
+
+.card-position {
+  align-items: center;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #2563eb; /* Tailwind blue-600 */
+  font-weight: 500;
+  font-size: 1.05rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.card-description {
+  align-items: center;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: center;
+}

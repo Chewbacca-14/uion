@@ -1,0 +1,165 @@
+.contact-row {
+  margin-top: 120px;
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+
+  flex-wrap: wrap; /* enable wrapping */
+}
+
+h3 {
+  font-family: "Generalsans", sans-serif;
+  font-weight: 600;
+  font-size: 2.125rem;
+  color: #242424;
+}
+
+p {
+  align-items: center;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.left-container {
+  border: 1px solid #e8ecfe;
+  background: linear-gradient(to bottom right, #f5f6f8, #fafbfc);
+  width: 352px;
+  height: 560px;
+  border-radius: 0.75rem;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.875rem;
+  display: flex;
+}
+
+.right-container {
+  background-color: #f5f6f8;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  width: 630px;
+  height: 562px;
+  padding: 1.875rem;
+}
+
+.divider {
+  background-color: #e8ecfe;
+  width: 100%;
+  height: 1px;
+}
+
+.right-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.form-column {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space between fields */
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-field label {
+  font-weight: 500;
+  color: #242424;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+input,
+textarea {
+  box-sizing: border-box; /* important to prevent overflow */
+  width: 100%;
+  border: 1px solid #e8ecfe;
+  background-color: white;
+  color: black;
+  border-radius: 1.5rem;
+  padding: 0 20px; /* horizontal padding only */
+  margin-top: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  resize: vertical;
+}
+
+input {
+  height: 50px;
+  border-radius: 3.125rem;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+textarea {
+  min-height: 130px;
+  padding: 15px 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  font-weight: 400;
+  min-height: 1.2rem; /* reserve space for error */
+}
+
+.send-button {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 44px;
+  border: none;
+  background-color: #242424;
+  color: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: #008bee;
+  cursor: pointer;
+}
+
+.send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.required-star {
+  color: red;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 0;
+}
+
+.bottom-icon-row {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  gap: 10px;
+  cursor: pointer;
+}
