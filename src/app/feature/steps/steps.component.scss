@@ -7,31 +7,56 @@
 
 .container {
   position: relative;
-  max-width: fit-content;
   margin: auto;
+  max-width: 1400px;
   margin-top: 40px;
   margin-bottom: 40px;
+
+  display: flex;
+  justify-content: center;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 70px); /* максимум 3 колонки */
-  gap: 200px;
+  row-gap: 200px;
+  column-gap: 400px;
   position: relative;
   z-index: 1;
-  justify-items: center;
-  justify-content: center; /* центрируем всю сетку */
+  margin: 0 70px;
+  justify-content: center;
 
-  @media (max-width: 992px) {
-      grid-template-columns: repeat(2, 70px); /* при < 992px — 2 колонки */
-      gap: 200px;
-
+  @media (max-width: 480px) {
+    grid-template-columns: 70px; /* при < 576px — 1 колонка */
+    column-gap: 60px;
   }
 
-  @media (max-width: 576px) {
-      grid-template-columns: 70px; /* при < 576px — 1 колонка */
-      gap: 200px;
+  // от 390px до 576px
+  @media (min-width: 480px) and (max-width: 575.98px) {
+    grid-template-columns: repeat(2, 70px); /* при < 992px — 2 колонки */
+    column-gap: 100px;
+  }
 
+  // от 576px до 992px
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    grid-template-columns: repeat(2, 70px); /* при < 992px — 2 колонки */
+    column-gap: 150px;
+  }
+
+  // от 992px до 1200px
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    grid-template-columns: repeat(3, 70px); /* при < 992px — 2 колонки */
+    column-gap: 150px;
+  }
+
+  // от 1200px до 1400px
+  @media (min-width: 1200px) and (max-width: 1399.98px) {
+    grid-template-columns: repeat(3, 70px); /* при < 992px — 2 колонки */
+    column-gap: 200px;
+  }
+  @media (min-width: 1400px) and (max-width: 1600px) {
+    grid-template-columns: repeat(3, 70px); /* при < 992px — 2 колонки */
+    column-gap: 300px;
   }
 }
 
@@ -81,7 +106,6 @@
 svg.connector {
   position: absolute;
   top: 0;
-  left: 0;
   overflow: visible;
   z-index: 0;
   pointer-events: none;
