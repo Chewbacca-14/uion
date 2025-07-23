@@ -10,13 +10,12 @@ import {NgOptimizedImage} from "@angular/common";
   templateUrl: './steps.component.html',
   styleUrl: './steps.component.scss'
 })
-export class StepsComponent  implements AfterViewInit {
-  @ViewChild('svgConnector', { static: false }) svgRef!: ElementRef<SVGSVGElement>;
-  @ViewChild('grid', { static: false }) gridRef!: ElementRef<HTMLDivElement>;
+export class StepsComponent implements AfterViewInit {
+  @ViewChild('svgConnector', {static: false}) svgRef!: ElementRef<SVGSVGElement>;
+  @ViewChild('grid', {static: false}) gridRef!: ElementRef<HTMLDivElement>;
 
   stepsCount = 9;
   stepSize = 70;
-  gap = 200;
   arcRadius = 68;
 
   ngAfterViewInit(): void {
@@ -31,9 +30,31 @@ export class StepsComponent  implements AfterViewInit {
   private drawZigzag(): void {
     const perRow = this.getPerRow();
     const svg = this.svgRef.nativeElement;
+
+    const windowWidth = window.innerWidth;
+
+    let direction = 1;
+    let x = 70;
+    let y = 35;
+    let gap = 400;
+
+    if (windowWidth > 1600) {
+      gap = 400
+    }else if (windowWidth > 1400) {
+      gap = 300
+    } else if (windowWidth > 1200) {
+      gap = 200
+    } else if (windowWidth > 992) {
+      gap = 150
+    } else if (windowWidth > 576) {
+      gap = 100
+    } else if (windowWidth > 480) {
+      gap = 60
+    }
+
     const rows = Math.ceil(this.stepsCount / perRow);
-    const totalWidth = perRow * this.stepSize + (perRow - 1) * this.gap;
-    const totalHeight = rows * this.stepSize + (rows - 1) * this.gap;
+    const totalWidth = perRow * this.stepSize + (perRow - 1) * gap;
+    const totalHeight = rows * this.stepSize + (rows - 1) * gap;
 
     svg.setAttribute('width', `${totalWidth + 100}`);
     svg.setAttribute('height', `${totalHeight + 100}`);
@@ -41,17 +62,14 @@ export class StepsComponent  implements AfterViewInit {
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     let d = '';
 
-    let direction = 1;
-    let x = 35;
-    let y = 35;
 
     d += `M ${x},${y} `;
 
     for (let row = 0; row < rows; row++) {
       const isLastRow = row === rows - 1;
-      const startX = direction === 1 ? 35 : 35 + (perRow - 1) * (this.stepSize + this.gap);
-      const nextX = direction === 1 ? startX - this.stepSize : 50 + (perRow - 1) * (this.stepSize + this.gap);
-      const endX = direction === 1 ? startX + (perRow - 1) * (this.stepSize + this.gap) + this.stepSize : 35;
+      const startX = direction === 1 ? x : x + (perRow - 1) * (this.stepSize + gap);
+      const nextX = direction === 1 ? startX - this.stepSize : this.stepSize + (perRow - 1) * (this.stepSize + gap);
+      const endX = direction === 1 ? startX + ((perRow - 1) * (this.stepSize + gap) + this.stepSize) : x;
 
       if (isLastRow) {
         if (perRow === 2) {
