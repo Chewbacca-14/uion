@@ -45,6 +45,15 @@ body {
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Enhanced smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
 }
 
 html,

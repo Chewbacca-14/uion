@@ -14,9 +14,9 @@ export class StepsComponent implements AfterViewInit {
   @ViewChild('svgConnector', {static: false}) svgRef!: ElementRef<SVGSVGElement>;
   @ViewChild('grid', {static: false}) gridRef!: ElementRef<HTMLDivElement>;
 
-  stepsCount = 9;
-  stepSize = 70;
-  arcRadius = 68;
+  stepsCount = 8;
+  stepSize = 72;
+  arcRadius = 75.3;
 
   ngAfterViewInit(): void {
     this.drawZigzag();
@@ -72,11 +72,11 @@ export class StepsComponent implements AfterViewInit {
       const endX = direction === 1 ? startX + ((perRow - 1) * (this.stepSize + gap) + this.stepSize) : x;
 
       if (isLastRow) {
-        if (perRow === 2) {
-          d += `L ${startX},${y} `;
-        } else {
-          d += `L ${endX - this.stepSize},${y} `;
-        }
+        const remainingSteps = this.stepsCount - (row * perRow);
+        const lastStepX = direction === 1 
+          ? startX + ((remainingSteps - 1) * (this.stepSize + gap))
+          : startX - ((remainingSteps - 1) * (this.stepSize + gap));
+        d += `L ${lastStepX},${y} `;
       } else {
         d += `L ${endX},${y} `;
       }

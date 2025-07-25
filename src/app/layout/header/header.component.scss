@@ -64,6 +64,21 @@ nav ul {
 nav a {
   color: black;
   text-decoration: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+nav a:hover {
+  background-color: #f5f5f5;
+  color: #0066cc;
+}
+
+/* Enhanced smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
 }
 
 .menu-toggle {

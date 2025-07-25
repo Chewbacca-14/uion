@@ -1,8 +1,12 @@
 .after-header-text {
   padding: 2rem;
   text-align: center;
-
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
 }
 
 .container {
@@ -18,85 +22,89 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 70px); /* максимум 3 колонки */
+  grid-template-columns: repeat(3, 90px); /* максимум 3 колонки */
   row-gap: 200px;
   column-gap: 400px;
   position: relative;
   z-index: 1;
-  margin: 0 70px;
+  margin: 0 90px;
   justify-content: center;
 
   @media (max-width: 480px) {
-    grid-template-columns: 70px; /* при < 576px — 1 колонка */
+    grid-template-columns: 90px; /* при < 576px — 1 колонка */
     column-gap: 60px;
   }
 
   // от 390px до 576px
   @media (min-width: 480px) and (max-width: 575.98px) {
-    grid-template-columns: repeat(2, 70px); /* при < 992px — 2 колонки */
+    grid-template-columns: repeat(2, 90px); /* при < 992px — 2 колонки */
     column-gap: 100px;
   }
 
   // от 576px до 992px
   @media (min-width: 576px) and (max-width: 991.98px) {
-    grid-template-columns: repeat(2, 70px); /* при < 992px — 2 колонки */
+    grid-template-columns: repeat(2, 90px); /* при < 992px — 2 колонки */
     column-gap: 150px;
   }
 
   // от 992px до 1200px
   @media (min-width: 992px) and (max-width: 1199.98px) {
-    grid-template-columns: repeat(3, 70px); /* при < 992px — 2 колонки */
+    grid-template-columns: repeat(3, 90px); /* при < 992px — 2 колонки */
     column-gap: 150px;
   }
 
   // от 1200px до 1400px
   @media (min-width: 1200px) and (max-width: 1399.98px) {
-    grid-template-columns: repeat(3, 70px); /* при < 992px — 2 колонки */
+    grid-template-columns: repeat(3, 90px); /* при < 992px — 2 колонки */
     column-gap: 200px;
   }
   @media (min-width: 1400px) and (max-width: 1600px) {
-    grid-template-columns: repeat(3, 70px); /* при < 992px — 2 колонки */
+    grid-template-columns: repeat(3, 90px); /* при < 992px — 2 колонки */
     column-gap: 300px;
   }
 }
 
-
 .step {
   position: relative;
-  width: 70px;
-  height: 70px;
-  border: 1px solid #ECEDEE;
+  width: 90px;
+  height: 90px;
+  border: 1px solid #ecedee;
   border-radius: 50%;
   font-size: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  box-shadow: 0px 0px 20px 1px #0000000D;
+  box-shadow: 0px 0px 20px 1px #0000000d;
 
-  &.border-light{
-    border: 2.1px solid #5FA8FF;
-    box-shadow: 0px 0px 20px 0.5px #4F9FFF4D;
+  &.border-light {
+    border: 2.1px solid #5fa8ff;
+    box-shadow: 0px 0px 20px 0.5px #4f9fff4d;
   }
 
-  .tool{
+  .tool {
     position: absolute;
-    top: 80px;
+    top: 100px;
     width: max-content;
 
-    .titlee{
-      font-weight: 400;
-      font-size: 14px;
-      letter-spacing: 0;
+    .titlee {
+      margin-top: 3px;
+      color: #000000;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.32px;
       text-align: center;
+      color: #252525;
+      font-family: "Generalsans", sans-serif;
       margin-bottom: 9px;
     }
 
-    .desc{
+    .desc {
+      color: #4b5563; /* gray-600 */
       max-width: 140px;
       font-weight: 400;
-      font-size: 9.5px;
-      letter-spacing: 0;
+      font-size: 11px;
+      letter-spacing: 0.18px;
       text-align: center;
       line-height: 12px;
     }
@@ -109,4 +117,29 @@ svg.connector {
   overflow: visible;
   z-index: 0;
   pointer-events: none;
+}
+
+h2 {
+  text-align: center;
+  max-width: 600px;
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  color: #242424;
+  margin-bottom: 20px;
+}
+
+p {
+  align-items: center;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: center;
 }
