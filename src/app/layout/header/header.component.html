@@ -7,13 +7,12 @@
       <li><a href="#our-services">Naše Služby</a></li>
       <li><a href="#technologies">Technologie</a></li>
       <li><a href="#about">O nás</a></li>
-       <li><a href="#steps">Jak to funguje</a></li>
+       <li><a href="#steps">Náš proces</a></li>
          <li><a href="#why-us">Proč právě my</a></li>
-      <li><a href="#contact">Kontakt</a></li>
 
     </ul>
   </nav>
-   <button class="btn-primary">Kontaktujte nás nyní</button>
+  <button class="btn-primary" (click)="goToContact()">Kontaktujte nás nyní</button>
   <button class="menu-toggle" (click)="toggleMenu()">
     ☰
   </button>
@@ -27,11 +26,11 @@
   <img src="/assets/icons/rocket.svg" alt="Check" class="icon" />
 </div>
   <h1>Tvoříme digitální produkty, které dávají smysl</h1>
-  <p>Jsme mladé a ambiciózní studio připravené proměnit vaše nápady v chytrá a funkční řešení. Pojďme společně vytvořit něco skvělého.</p>
+  <p>Jsme mladý a ambiciózní tým, který promění vaše nápady ve funkční a chytrá IT řešení. Společně vytvoříme něco výjimečného.</p>
 </div>
 
 <div class="header-buttons">
-  <button class="btn-primary">Napište nám</button>
+  <button (click)="goToContact()" class="btn-primary">Napište nám</button>
   <button class="btn-secondary">
       <img src="/assets/icons/about-us.png" alt="Check" class="icon" />
     Více o nas</button>

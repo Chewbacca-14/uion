@@ -1,90 +1,316 @@
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .footer {
-  background: #242424;
-  color: #f0f0f0;
-  padding: 40px 20px;
-  font-family: "Generalsans", sans-serif;
+  background-color: #242424;
+  color: white;
+  padding: 60px 0 20px;
+  margin-top: 80px;
+  font-family: "Geist", sans-serif;
 }
 
 .footer-container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 75rem;
   margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-main {
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 40px;
+  animation: fadeInSlide 1.2s ease-out forwards;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.footer-left h3 {
-  margin: 0 0 10px;
-  font-size: 1.8rem;
-  font-weight: 700;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 300px;
 }
 
-.footer-left p {
-  max-width: 280px;
-  font-weight: 300;
-  line-height: 1.4rem;
+.footer-logo {
+  max-width: 120px;
+  height: auto;
+  filter: brightness(0) invert(1); /* Makes logo white */
 }
 
-.footer-center nav a {
-  color: #f0f0f0;
-  margin-right: 20px;
+.footer-tagline {
+  font-family: "Geist", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #e0e4e6;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-nav {
+  display: flex;
+}
+
+.footer-nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.footer-nav a {
+  color: white;
   text-decoration: none;
-  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-.footer-center nav a:hover {
-  color: #ffd54f;
+.footer-nav a:hover {
+  color: #008bee;
 }
 
-.footer-right {
-  text-align: right;
-  min-width: 180px;
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #008bee;
+  transition: width 0.3s ease;
 }
 
-.social-icons a {
-  display: inline-block;
-  margin-left: 15px;
-  transition: transform 0.3s ease;
+.footer-nav a:hover::after {
+  width: 100%;
 }
 
-.social-icons a:first-child {
-  margin-left: 0;
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.social-icons a:hover {
-  transform: scale(1.2);
+.btn-primary {
+  height: 48px;
+  padding: 0 28px;
+  border: none;
+  background-color: #008bee;
+  color: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(90%) invert(1);
+.btn-primary:hover {
+  background-color: #0066cc;
+  transform: translateY(-2px);
 }
 
-.footer-right small {
-  display: block;
-  margin-top: 15px;
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.social-link img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Makes icons white */
+}
+
+.footer-bottom {
+  animation: fadeInSlide 1.4s ease-out forwards;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.2) 80%,
+    transparent
+  );
+  margin: 0 0 30px 0;
+}
+
+.footer-copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+
+.footer-copyright p {
+  margin: 0;
+  font-family: "Geist", sans-serif;
   font-weight: 300;
-  font-size: 0.85rem;
-  color: #ccc;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 700px) {
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-links a {
+  color: #b0b0b0;
+  text-decoration: none;
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #008bee;
+}
+
+/* Enhanced smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-main {
+    gap: 1.5rem;
+  }
+
+  .footer-nav-list {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px;
+    margin-top: 60px;
+  }
+
   .footer-container {
+    padding: 0 15px;
+  }
+
+  .footer-main {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 30px;
     text-align: center;
   }
-  .footer-right {
+
+  .footer-brand {
+    align-items: center;
     text-align: center;
-    min-width: auto;
-    margin-top: 20px;
+    max-width: 100%;
   }
-  .social-icons a {
-    margin-left: 10px;
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .footer-nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .footer-actions {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 0 15px;
+  }
+
+  .footer-main {
+    gap: 1.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-link img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
   }
 }

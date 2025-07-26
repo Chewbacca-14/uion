@@ -12,40 +12,35 @@ import { ProductCardComponent } from '../../shared/components/product-card/produ
 export class OurServicesComponent {
   cards = [
     {
-      icon: '/assets/icons/mobile.png',
-      title: 'Mobilní aplikace',
+      icon: '/assets/icons/website.png',
+      title: 'Landing Page',
       description:
-        'Tvoříme rychlé a spolehlivé mobilní aplikace pro iOS i Android pomocí Flutteru',
+        'Optimalizované vstupní stránky, které zaujmou návštěvníky, jasně komunikují hodnotu a zvýší vaše konverze.',
+    },
+    {
+      icon: '/assets/icons/mobile.png',
+      title: 'Mobilní a webové aplikace',
+      description:
+        'Vyvíjíme rychlé a spolehlivé mobilní aplikace pro iOS i Android pomocí Flutteru i moderní webové aplikace, které posouvají vaše podnikání vpřed.',
     },
     {
       icon: '/assets/icons/internet.png',
       title: 'Webové stránky',
       description:
-        'Navrhujeme moderní, přehledné a responzivní webové stránky přesně podle potřeb vašeho projektu',
-    },
-    {
-      icon: '/assets/icons/coding.png',
-      title: 'Webové aplikace',
-      description:
-        'Vyvíjíme chytré webové aplikace, které zefektivní vaše podnikání a ušetří čas',
+        'Navrhujeme moderní, přehledné a responzivní webové stránky šité na míru vašim potřebám a cílové skupině.',
     },
     {
       icon: '/assets/icons/design.png',
-      title: 'UI/UX',
+      title: 'UI/UX a Branding',
       description:
-        'Vytváříme design, který potěší oko i uživatele – funkční, intuitivní a estetický',
-    },
-    {
-      icon: '/assets/icons/website.png',
-      title: 'Landing Page',
-      description:
-        'Optimalizované vstupní stránky, které zaujmou, vysvětlí a zvýší vaše konverze',
-    },
-    {
-      icon: '/assets/icons/interview.png',
-      title: 'Konzultace',
-      description:
-        'Pomůžeme vám najít ideální digitální řešení a strategii pro růst vašeho projektu',
+        'Vytváříme design, který zaujme a usnadní používání – funkční, intuitivní a vizuálně atraktivní, podporující vaši značku.',
     },
   ];
+
+  goToWhyChooseUs() {
+    const whyChooseUsSection = document.getElementById('why-us');
+    if (whyChooseUsSection) {
+      whyChooseUsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

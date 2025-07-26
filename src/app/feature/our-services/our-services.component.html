@@ -1,7 +1,7 @@
 
 <div id="our-services" class="main-content">
   <h2>Naše Služby</h2>
-  <p>Jsme nadšenci do IT a technologií, kteří věří, že inovace mají sílu měnit svět. S vášní pro technologie a neustálou touhou objevovat nové možnosti se snažíme přinášet svěží a efektivní řešení do IT světa. </p>
+  <p>Jsme IT nadšenci, kteří věří, že inovace mohou posunout váš byznys kupředu. S vášní pro technologie a neustálým hledáním nových možností přinášíme efektivní a na míru šitá řešení, která pomáhají vašemu podnikání růst.</p>
   <div class="card-grid">
   <app-product-card
     *ngFor="let card of cards"
@@ -12,9 +12,9 @@
 </div>
 <div class="action-card">
   <div class="action-card-left">
-    <h2>Proměňte svůj nápad ve skutečnost s námi.</h2>
-    <p>Ozvěte se nám a posuňme váš projekt dál.</p>
-    <button class="btn-secondary">Pojďme na to</button>
+    <h2>Začínáte podnikat?</h2>
+    <p>Potřebujete web nebo branding? Pomůžeme vám růst od prvního kroku.</p>
+    <button (click)="goToWhyChooseUs()" class="btn-secondary">Prozkoumat výhody</button>
   </div>
   <div class="action-card-right">
      <img class="img1" src="../../../assets/icons/km.png" alt="Visual" />
