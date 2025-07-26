@@ -7,8 +7,8 @@ import { TechnologiesComponent } from './feature/technologies/technologies.compo
 import { OurServicesComponent } from './feature/our-services/our-services.component';
 import { WhyChooseUsComponent } from './feature/why-choose-us/why-choose-us.component';
 import { ContactsComponent } from './feature/contacts/contacts.component';
-import {WorkStepsComponent} from "./feature/work-steps/work-steps.component";
-import {StepsComponent} from "./feature/steps/steps.component";
+import { WorkStepsComponent } from './feature/work-steps/work-steps.component';
+import { StepsComponent } from './feature/steps/steps.component';
 
 @Component({
   selector: 'app-root',
@@ -28,5 +28,5 @@ import {StepsComponent} from "./feature/steps/steps.component";
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'brivex-website';
+  title = 'uion';
 }
