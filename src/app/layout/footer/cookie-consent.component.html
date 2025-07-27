@@ -1,0 +1,13 @@
+<div class="cookie-consent" *ngIf="showBanner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <h4>Používáme cookies</h4>
+      <p>Používáme cookies k vylepšení vašeho prohlížení, poskytování personalizovaného obsahu a analýze návštěvnosti. Kliknutím na "Přijmout vše" souhlasíte s použitím cookies.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie secondary" (click)="rejectCookies()">Odmítnout</button>
+      <button class="btn-cookie" (click)="manageCookies()">Pouze nutné</button>
+      <button class="btn-cookie primary" (click)="acceptAllCookies()">Přijmout vše</button>
+    </div>
+  </div>
+</div>

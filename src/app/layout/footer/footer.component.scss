@@ -15,6 +15,14 @@
   padding: 60px 0 20px;
   margin-top: 80px;
   font-family: "Geist", sans-serif;
+  /* Add margin bottom to account for cookie banner */
+  margin-bottom: 0;
+  position: relative;
+}
+
+/* Add class for when cookie banner is visible */
+.footer.with-cookie-banner {
+  margin-bottom: 100px;
 }
 
 .footer-container {
@@ -204,6 +212,11 @@
 /* Enhanced smooth scrolling */
 * {
   scroll-behavior: smooth;
+}
+
+/* Ensure footer content doesn't overlap with cookie banner */
+body.cookie-banner-visible {
+  padding-bottom: 100px;
 }
 
 /* Responsive Design */
