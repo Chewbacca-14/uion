@@ -10,6 +10,7 @@ import { WorkStepsComponent } from './feature/work-steps/work-steps.component';
 import { StepsComponent } from './feature/steps/steps.component';
 import { SeoService } from './services/seo.service';
 import { SEO_CONFIG } from './config/seo.config';
+import { inject } from '@vercel/analytics';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,9 @@ import { SEO_CONFIG } from './config/seo.config';
 export class AppComponent implements OnInit {
   title = 'uion';
 
-  constructor(private seoService: SeoService) {}
+  constructor(private seoService: SeoService) {
+    inject();
+  }
 
   ngOnInit() {
     // Set default SEO data for the homepage
