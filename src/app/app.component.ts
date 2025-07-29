@@ -6,6 +6,7 @@ import { TechnologiesComponent } from './feature/technologies/technologies.compo
 import { OurServicesComponent } from './feature/our-services/our-services.component';
 import { WhyChooseUsComponent } from './feature/why-choose-us/why-choose-us.component';
 import { ContactsComponent } from './feature/contacts/contacts.component';
+import { FaqComponent } from './feature/faq/faq.component';
 import { WorkStepsComponent } from './feature/work-steps/work-steps.component';
 import { StepsComponent } from './feature/steps/steps.component';
 import { SeoService } from './services/seo.service';
@@ -25,6 +26,7 @@ import { inject } from '@vercel/analytics';
     ContactsComponent,
     WorkStepsComponent,
     StepsComponent,
+    FaqComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

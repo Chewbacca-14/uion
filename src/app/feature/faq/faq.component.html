@@ -1,0 +1,16 @@
+<div class="main-content">
+  <h2>Často kladené otázky</h2>
+  <p>Odpovědi na nejčastější dotazy ohledně našich služeb a spolupráce.</p>
+
+  <div class="faq-container">
+    <ng-container *ngFor="let item of faq; let i = index; last as isLast">
+      <app-faq-card 
+        [question]="item.question" 
+        [answer]="item.answer" 
+        [showBottomBorder]="isLast"
+        [isExpanded]="expandedIndex === i"
+        (toggle)="toggleCard(i)">
+      </app-faq-card>
+    </ng-container>
+  </div>
+</div>

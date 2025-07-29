@@ -1,0 +1,9 @@
+<div class="faq-card" (click)="onToggle()" [class.expanded]="isExpanded" [class.bottom-border]="showBottomBorder">
+  <div class="faq-question">
+    {{ question }}
+    <img src="/assets/icons/down-chevron.svg" alt="expand" class="arrow" [class.rotate]="isExpanded">
+  </div>
+  <div class="faq-answer" [ngClass]="{ 'expanded': isExpanded }">
+    {{ answer }}
+  </div>
+</div>
