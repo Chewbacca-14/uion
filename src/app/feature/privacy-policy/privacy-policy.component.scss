@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #222;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  border: 1px solid #ecedee;
+  border-radius: 0.75rem;
+
+  @media (max-width: 900px) {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  color: #242424;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+}
+
+p {
+  align-items: center;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+a {
+  color: #3893ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  margin-bottom: 2rem;
+}

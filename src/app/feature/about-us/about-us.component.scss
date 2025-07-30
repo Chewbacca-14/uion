@@ -38,7 +38,6 @@ p {
   margin: 0 auto;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  width: 100%;
   max-width: 1200px; /* Optional: control maximum width */
 }
 

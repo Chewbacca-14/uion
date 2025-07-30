@@ -12,11 +12,13 @@ import { StepsComponent } from './feature/steps/steps.component';
 import { SeoService } from './services/seo.service';
 import { SEO_CONFIG } from './config/seo.config';
 import { inject } from '@vercel/analytics';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    RouterModule,
     HeaderComponent,
     AboutUsComponent,
     FooterComponent,
