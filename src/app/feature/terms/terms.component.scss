@@ -1,7 +1,6 @@
 :host {
   display: block;
   font-family: "Segoe UI", sans-serif;
-  line-height: 1.6;
   background: #f9f9f9;
   color: #222;
   padding: 2rem;
@@ -11,21 +10,17 @@
   border-radius: 0.75rem;
 
   @media (max-width: 900px) {
-    margin-left: 35px;
-    margin-right: 35px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 }
 
-h1,
-h2 {
-  margin: 0;
+h1, h2 {
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 3rem;
-  line-height: 3.5rem;
   color: #242424;
-  margin-bottom: 20px;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -39,16 +34,25 @@ h2 {
 }
 
 p {
-  align-items: center;
   max-width: 800px;
-  margin: 0;
-  line-height: 1.5rem;
   color: #3f3f3fe0;
   font-weight: 300;
   font-size: 1rem;
   font-family: "Generalsans", sans-serif;
   margin-bottom: 40px;
   text-align: left;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin-bottom: 40px;
+}
+
+li {
+  margin-bottom: 0.8rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
 }
 
 a {
