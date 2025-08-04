@@ -137,7 +137,7 @@ Add to `index.html`:
 
 ```html
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E8XZPTLJE0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() {

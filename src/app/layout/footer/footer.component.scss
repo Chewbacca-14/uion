@@ -21,11 +21,11 @@ body.cookie-banner-visible {
   justify-content: space-between;
   gap: 40px;
   margin: 0 50px;
-  max-width: 1200px;
+  max-width: 2000px;
   align-items: center;
   margin: 0 auto;
 
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
 }
 
@@ -146,6 +146,9 @@ p {
   display: flex;
   flex-direction: column;
   padding: 0 50px;
+  align-items: center;
+  max-width: 2000px;
+  margin: 0 auto;
 }
 
 @media (max-width: 600px) {
@@ -171,6 +174,7 @@ p {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
 }
 
 .copywrite p {

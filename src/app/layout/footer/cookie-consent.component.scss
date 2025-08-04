@@ -1,140 +1,242 @@
-.cookie-consent {
+/* Banner */
+.cookie-banner {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(36, 36, 36, 0.95);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  background: #222;
+  color: #fff;
+  padding: 1rem;
   z-index: 1000;
-  font-family: "Geist", sans-serif;
-  animation: slideUp 0.5s ease-out forwards;
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.cookie-content {
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 20px;
+.banner-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.cookie-text {
+.text-column {
   flex: 1;
-  color: white;
+  min-width: 300px;
 }
 
-.cookie-text h4 {
-  margin: 0 0 8px 0;
+.text-column h3 {
+  margin: 0 0 0.5rem;
   font-size: 1.1rem;
   font-weight: 500;
   color: white;
 }
 
-.cookie-text p {
+.text-column p {
   margin: 0;
   font-size: 0.9rem;
   color: #e0e4e6;
   line-height: 1.4;
 }
 
-.cookie-actions {
+.buttons {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
-.btn-cookie {
-  padding: 10px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
-  color: white;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-family: "Geist", sans-serif;
-  font-weight: 400;
+.buttons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
   white-space: nowrap;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.btn-cookie:hover {
-  background: rgba(255, 255, 255, 0.1);
+.buttons button:first-child {
+  background: #278aff;
+  color: #fff;
+}
+
+.buttons button:first-child:hover {
+  background: #278aff;
+  box-shadow: 0 4px 12px rgba(39, 138, 255, 0.3);
   transform: translateY(-1px);
 }
 
-.btn-cookie.primary {
-  background: #008bee;
-  border-color: #008bee;
-  color: white;
+.buttons button:last-child {
+  background: #f8f9fa;
+  color: #374151;
+  border: 1px solid #e5e7eb;
 }
 
-.btn-cookie.primary:hover {
-  background: #0066cc;
-  border-color: #0066cc;
+.buttons button:last-child:hover {
+  background: #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
 
-.btn-cookie.secondary {
-  color: #b0b0b0;
-  border-color: rgba(176, 176, 176, 0.3);
-}
-
-.btn-cookie.secondary:hover {
-  color: white;
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-  .cookie-content {
+  .banner-content {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 20px 15px;
-    text-align: center;
+    align-items: stretch;
   }
 
-  .cookie-text h4 {
-    font-size: 1rem;
-  }
-
-  .cookie-text p {
-    font-size: 0.85rem;
-  }
-
-  .cookie-actions {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-cookie {
-    flex: 1;
-    min-width: 80px;
-    padding: 12px 16px;
+  .buttons {
+    justify-content: flex-start;
   }
 }
 
-@media (max-width: 480px) {
-  .cookie-actions {
-    flex-direction: column;
-    gap: 8px;
-  }
+/* Edit panel */
+.edit-panel {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  font-family: sans-serif;
+}
 
-  .btn-cookie {
-    width: 100%;
-  }
+.edit-panel h4 {
+  margin: 0 0 0.5rem;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Generalsans", sans-serif;
+  letter-spacing: 0.32px;
+}
+
+.info-text {
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Generalsans", sans-serif;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* Cards */
+.cookie-card {
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 0.7rem 1rem;
+}
+
+.cookie-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cookie-content p {
+  margin: 0;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: "Generalsans", sans-serif;
+  text-align: left;
+}
+
+.cookie-content strong {
+  margin: 0 0 0.5rem;
+  color: #000000;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Generalsans", sans-serif;
+  letter-spacing: 0.32px;
+}
+
+/* Switch UI */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider::before {
+  transform: translateX(16px);
+}
+
+/* Disabled switch styling */
+.disabled-switch input:checked + .slider {
+  background-color: #9e9e9e;
+}
+
+.disabled-switch .slider {
+  cursor: not-allowed;
+}
+
+/* Footer buttons */
+.panel-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.panel-buttons button {
+  margin-top: 10px;
+  height: 32px;
+  padding: 0 24px;
+  border: none;
+  background-color: #242424;
+  color: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+}
+
+.panel-buttons button:hover {
+  background-color: #008bee;
+  color: white;
+  cursor: pointer;
 }

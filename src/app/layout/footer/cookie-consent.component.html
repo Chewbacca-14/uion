@@ -1,13 +1,54 @@
-<div class="cookie-consent" *ngIf="showBanner">
-  <div class="cookie-content">
-    <div class="cookie-text">
-      <h4>Používáme cookies</h4>
-      <p>Používáme cookies k vylepšení vašeho prohlížení, poskytování personalizovaného obsahu a analýze návštěvnosti. Kliknutím na "Přijmout vše" souhlasíte s použitím cookies.</p>
+<!-- Cookie Banner -->
+<div *ngIf="!consentGiven" class="cookie-banner">
+  <div class="banner-content">
+    <div class="text-column">
+      <h3>Používáme cookies</h3>
+      <p>K vylepšení vašeho prohlížení, poskytování personalizovaného obsahu a analýze návštěvnosti. Kliknutím na "Přijmout vše" souhlasíte s použitím cookies.</p>
     </div>
-    <div class="cookie-actions">
-      <button class="btn-cookie secondary" (click)="rejectCookies()">Odmítnout</button>
-      <button class="btn-cookie" (click)="manageCookies()">Pouze nutné</button>
-      <button class="btn-cookie primary" (click)="acceptAllCookies()">Přijmout vše</button>
+    <div class="buttons">
+      <button (click)="acceptAll()">Přijmout vše</button>
+      <button (click)="showEdit = true">Upravit cookies</button>
     </div>
+  </div>
+</div>
+
+<!-- Floating Edit Panel -->
+<div class="edit-panel" *ngIf="showEdit">
+  <h4>Nastavení cookies</h4>
+  <p class="info-text">
+    🍪 Tento web používá cookies, aby fungoval správně, pomohl nám porozumět chování uživatelů 
+    a přizpůsobil reklamy (včetně služeb Google). Více v <a href="/privacy-policy" target="_blank">Zásadách ochrany osobních údajů</a>.
+  </p>
+
+  <!-- Necessary -->
+  <div class="cookie-card">
+    <div class="cookie-content">
+      <div>
+        <strong>Nezbytné</strong>
+        <p>Funkce webu</p>
+      </div>
+      <label class="switch disabled-switch">
+        <input type="checkbox" checked disabled />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Analytics -->
+  <div class="cookie-card">
+    <div class="cookie-content">
+      <div>
+        <strong>Analytické</strong>
+        <p>Google Analytics</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="analyticsConsent" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="panel-buttons">
+    <button (click)="savePreferences()">Uložit</button>
   </div>
 </div>
