@@ -35,8 +35,8 @@ import { RouterModule } from '@angular/router';
     <app-steps></app-steps>
     <app-why-choose-us></app-why-choose-us>
     <app-work-steps></app-work-steps>
-    <app-faq></app-faq>
     <app-contacts></app-contacts>
+    <app-faq></app-faq>
   `,
   styleUrl: './home.component.scss',
 })

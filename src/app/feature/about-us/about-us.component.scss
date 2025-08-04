@@ -31,40 +31,53 @@ p {
   text-align: center;
 }
 
-.card-grid {
-  display: grid;
-  gap: 25px;
-  padding: 20px;
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  max-width: 1200px; /* Optional: control maximum width */
 }
 
-/* Responsive: 2 columns on medium screens */
-@media (max-width: 900px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 700px; /* adjust max-width accordingly */
-  }
+.card-grid {
+  display: flex;
+  gap: 25px;
+  padding: 20px 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  cursor: grab;
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Enable smooth touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
 }
 
-/* Responsive: 1 column on small screens */
-@media (max-width: 600px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    padding: 10px 20px;
-  }
+.card-grid:active {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }
+
+.card-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 .team-card {
   border-radius: 12px;
   padding: 20px;
-
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 12px;
   transition: transform 0.3s ease;
+  flex: 0 0 300px; /* Fixed width, no grow/shrink */
+  min-width: 300px;
+  scroll-snap-align: start;
+  user-select: none;
 }
 
 .team-card:hover {
@@ -100,4 +113,100 @@ p {
   color: #666;
   line-height: 1.4rem;
   margin-top: 8px;
+}
+
+/* Responsive: smaller cards on mobile */
+@media (max-width: 768px) {
+  .carousel-container {
+    max-width: calc(100vw - 40px);
+    margin: 0 20px;
+  }
+
+  .card-grid {
+    padding: 10px 20px;
+    gap: 15px;
+  }
+
+  .team-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    max-width: calc(100vw - 20px);
+    margin: 0 10px;
+  }
+
+  .card-grid {
+    padding: 10px 15px;
+  }
+
+  .team-card {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
+}
+/* Responsive: smaller cards on mobile */
+@media (max-width: 768px) {
+  .carousel-btn {
+    display: none;
+  }
+
+  .carousel-container {
+    max-width: calc(100vw - 40px);
+    margin: 0 20px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn-left {
+    margin-left: 15px;
+  }
+
+  .carousel-btn-right {
+    margin-right: 15px;
+  }
+
+  .card-grid {
+    padding: 10px 20px;
+    gap: 15px;
+  }
+
+  .team-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-btn {
+    display: none;
+  }
+
+  .carousel-container {
+    max-width: calc(100vw - 20px);
+    margin: 0 10px;
+  }
+
+  .carousel-btn-left {
+    left: -10px;
+  }
+
+  .carousel-btn-right {
+    right: -10px;
+  }
+
+  .card-grid {
+    padding: 10px 15px;
+  }
+
+  .team-card {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
 }

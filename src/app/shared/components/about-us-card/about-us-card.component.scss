@@ -1,24 +1,21 @@
-.card {
-  border: 1px solid #e5e7eb; /* Tailwind gray-200 */
-  border-radius: 0.5rem;
+.profile-column {
+  max-width: 300px;
+  min-width: 300px;
   text-align: center;
-  padding: 1.5rem;
-  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-
-.card-image {
+.profile-image {
   width: 8rem;
   height: 8rem;
   border-radius: 9999px;
   object-fit: cover;
+  margin-bottom: 1rem;
 }
 
-.card-name {
+.profile-name {
   color: #000000;
   font-size: 1.5rem;
   font-weight: 500;
@@ -27,28 +24,23 @@
   margin-bottom: 0.75rem;
 }
 
-.card-position {
-  align-items: center;
-  max-width: 800px;
+.profile-position {
   margin: 0;
   line-height: 1.5rem;
   color: #2563eb; /* Tailwind blue-600 */
   font-weight: 500;
   font-size: 1.05rem;
   font-family: "Generalsans", sans-serif;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.card-description {
-  align-items: center;
-  max-width: 800px;
+.profile-description {
   margin: 0;
   line-height: 1.5rem;
   color: #3f3f3fe0;
   font-weight: 300;
   font-size: 1rem;
   font-family: "Generalsans", sans-serif;
-  margin-bottom: 40px;
   text-align: center;
 }
