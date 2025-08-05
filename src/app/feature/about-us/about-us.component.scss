@@ -1,212 +1,106 @@
 .about-column {
-  margin: 120px auto 0 auto; /* top margin + auto horizontal margins to center */
+  margin: 120px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px; /* optional padding for smaller screens */
-}
+  padding: 0 20px;
 
-h2 {
-  text-align: center;
-  max-width: 600px;
-  margin: 0;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  font-size: 3rem;
-  line-height: 3.5rem;
-  color: #242424;
-  margin-bottom: 20px;
-}
+  h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
 
-p {
-  align-items: center;
-  max-width: 800px;
-  margin: 0;
-  line-height: 1.5rem;
-  color: #3f3f3fe0;
-  font-weight: 300;
-  font-size: 1rem;
-  font-family: "Generalsans", sans-serif;
-  margin-bottom: 40px;
-  text-align: center;
+  p {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 40px;
+  }
 }
 
 .carousel-container {
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
 }
 
 .card-grid {
   display: flex;
+  flex-wrap: wrap;
   gap: 25px;
-  padding: 20px 40px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  width: 100%;
-  cursor: grab;
-
-  /* Hide scrollbar */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  /* Enable smooth touch scrolling */
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-}
-
-.card-grid:active {
-  cursor: grabbing;
-  scroll-behavior: auto;
-}
-
-.card-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
-
-.team-card {
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   transition: transform 0.3s ease;
-  flex: 0 0 300px; /* Fixed width, no grow/shrink */
-  min-width: 300px;
-  scroll-snap-align: start;
-  user-select: none;
+  will-change: transform;
 }
 
-.team-card:hover {
-  transform: translateY(-5px);
-}
-
-.team-card img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 0 auto;
-  border: 1px solid #e8ecfe;
-}
-
-.team-card h3 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #242424;
-  font-weight: 600;
-}
-
-.team-card .role {
-  margin: 0;
-  font-weight: 500;
-  color: #555;
-  font-size: 1rem;
-  font-style: italic;
-}
-
-.team-card .description {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.4rem;
-  margin-top: 8px;
-}
-
-/* Responsive: smaller cards on mobile */
-@media (max-width: 768px) {
-  .carousel-container {
-    max-width: calc(100vw - 40px);
-    margin: 0 20px;
-  }
-
-  .card-grid {
-    padding: 10px 20px;
-    gap: 15px;
-  }
-
-  .team-card {
-    flex: 0 0 280px;
-    min-width: 280px;
-  }
-}
-
-@media (max-width: 600px) {
-  .carousel-container {
-    max-width: calc(100vw - 20px);
-    margin: 0 10px;
-  }
-
-  .card-grid {
-    padding: 10px 15px;
-  }
-
-  .team-card {
-    flex: 0 0 250px;
-    min-width: 250px;
-  }
-}
-/* Responsive: smaller cards on mobile */
+/* Mobile View */
 @media (max-width: 768px) {
   .carousel-btn {
-    display: none;
-  }
-
-  .carousel-container {
-    max-width: calc(100vw - 40px);
-    margin: 0 20px;
-  }
-
-  .carousel-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .carousel-btn-left {
-    margin-left: 15px;
-  }
-
-  .carousel-btn-right {
-    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .card-grid {
-    padding: 10px 20px;
-    gap: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: flex-start;
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+
+  app-about-us-card {
+    flex: 0 0 100vw; /* Each card takes full viewport width */
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
   }
 
   .team-card {
-    flex: 0 0 280px;
-    min-width: 280px;
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 600px) {
-  .carousel-btn {
-    display: none;
-  }
-
-  .carousel-container {
-    max-width: calc(100vw - 20px);
-    margin: 0 10px;
-  }
-
-  .carousel-btn-left {
-    left: -10px;
-  }
-
-  .carousel-btn-right {
-    right: -10px;
-  }
-
+/* Desktop View */
+@media (min-width: 769px) {
   .card-grid {
-    padding: 10px 15px;
+    justify-content: center;
   }
 
-  .team-card {
-    flex: 0 0 250px;
-    min-width: 250px;
+  app-about-us-card {
+    flex: 0 0 280px;
+    min-width: 280px;
   }
 }

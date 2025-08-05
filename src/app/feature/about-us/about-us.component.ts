@@ -1,76 +1,62 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  HostListener,
+} from '@angular/core';
 import { AboutUsCardComponent } from '../../shared/components/about-us-card/about-us-card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [AboutUsCardComponent],
+  imports: [AboutUsCardComponent, CommonModule],
   templateUrl: './about-us.component.html',
-  styleUrl: './about-us.component.scss',
+  styleUrls: ['./about-us.component.scss'],
 })
 export class AboutUsComponent implements AfterViewInit {
-  @ViewChild('cardGrid', { static: true })
+  @ViewChild('cardGrid', { static: false })
   cardGrid!: ElementRef<HTMLDivElement>;
 
-  private isDragging = false;
-  private startX = 0;
-  private startScrollLeft = 0;
+  currentIndex = 0;
+  totalCards = 4;
+
+  isMobile = false;
 
   ngAfterViewInit(): void {
-    window.addEventListener('resize', () => this.updateCardWidth());
+    this.checkScreenSize();
   }
 
-  private updateCardWidth(): void {
-    // Remove this method as we'll use dynamic calculation
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenSize();
   }
 
-  scrollLeft(): void {
-    const container = this.cardGrid.nativeElement;
-    const scrollAmount = container.clientWidth * 0.8; // Scroll 80% of visible width
-    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 768;
+    this.updateCarouselPosition();
   }
 
-  scrollRight(): void {
-    const container = this.cardGrid.nativeElement;
-    const scrollAmount = container.clientWidth * 0.8; // Scroll 80% of visible width
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  nextCard() {
+    if (this.currentIndex < this.totalCards - 1) {
+      this.currentIndex++;
+      this.updateCarouselPosition();
+    }
   }
 
-  onDragStart(event: MouseEvent): void {
-    this.isDragging = true;
-    const container = this.cardGrid.nativeElement;
-    this.startX = event.pageX - container.offsetLeft;
-    this.startScrollLeft = container.scrollLeft;
-    event.preventDefault();
+  previousCard() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.updateCarouselPosition();
+    }
   }
 
-  onDragMove(event: MouseEvent): void {
-    if (!this.isDragging) return;
-    event.preventDefault();
-    const container = this.cardGrid.nativeElement;
-    const x = event.pageX - container.offsetLeft;
-    const walk = (x - this.startX) * 2;
-    container.scrollLeft = this.startScrollLeft - walk;
-  }
-
-  onDragEnd(): void {
-    this.isDragging = false;
-  }
-
-  onTouchStart(event: TouchEvent): void {
-    const container = this.cardGrid.nativeElement;
-    this.startX = event.touches[0].pageX - container.offsetLeft;
-    this.startScrollLeft = container.scrollLeft;
-  }
-
-  onTouchMove(event: TouchEvent): void {
-    const container = this.cardGrid.nativeElement;
-    const x = event.touches[0].pageX - container.offsetLeft;
-    const walk = (x - this.startX) * 1.5;
-    container.scrollLeft = this.startScrollLeft - walk;
-  }
-
-  onTouchEnd(): void {
-    // Touch end handling if needed
+  private updateCarouselPosition() {
+    if (this.isMobile && this.cardGrid) {
+      const cardWidth = this.cardGrid.nativeElement.offsetWidth;
+      const translateX = -this.currentIndex * cardWidth;
+      this.cardGrid.nativeElement.style.transform = `translateX(${translateX}px)`;
+    }
   }
 }

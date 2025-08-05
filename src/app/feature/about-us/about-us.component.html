@@ -1,40 +1,47 @@
 <div id="about" class="about-column">
-    <h2>Small Team, Big Ideas</h2>
-    <p>Jsme sice malý tým, ale naše oddanost a kreativita neznají hranic. Každému projektu věnujeme plnou pozornost, hluboké know-how a individuální přístup. Společně vytváříme inovativní řešení šitá přesně na míru vašim potřebám.</p>
-    
-    <div class="carousel-container">
-        <div class="card-grid" #cardGrid
-             (mousedown)="onDragStart($event)"
-             (mousemove)="onDragMove($event)"
-             (mouseup)="onDragEnd()"
-             (mouseleave)="onDragEnd()"
-             (touchstart)="onTouchStart($event)"
-             (touchmove)="onTouchMove($event)"
-             (touchend)="onTouchEnd()">
-            <!-- Original cards -->
-            <app-about-us-card
-                [imageUrl]="'https://media.licdn.com/dms/image/v2/D4E03AQFxAjdx65J4NQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720036174465?e=1755129600&v=beta&t=PpTv_vLrutvRKz6WpubxVtztA6JnGMHniI_LI_qcI-Q'"
-                [nameSurname]="'Max Bulanovich'"
-                [position]="'Mobile Developer & Project Lead'"
-                [description]="'„Každý řádek kódu, který píšu, má přinášet užitek a potěšit uživatele. Věřím, že není důležité vytvářet spoustu funkcí, ale zaměřit se jen na ty, které opravdu dávají smysl a zajišťují pohodlné a efektivní používání. Vývoj by měl být jednoduchý, funkční a smysluplný, ne zahlcený zbytečnostmi.“'"
-            ></app-about-us-card>
-            <app-about-us-card
-                [imageUrl]="'/assets/people/sergei.png'"
-                [nameSurname]="'Sergei Voytenkov'"
-                [position]="'Jun Flutter Developer'"
-                [description]="'„Tvorba kódu je pro mě jako stavění domu nebo pěstování stromu v symbióze s malováním obrazu či skládáním hudby – každý detail má svůj význam při budování, a zároveň je to kreativní proces, který nutí zapojit představivost na maximum.“'"
-            />
-            <app-about-us-card
-                [imageUrl]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOuxrvcNMfGLh73uKP1QqYpKoCB0JLXiBMvA&s'"
-                [nameSurname]="'Ulan'"
-                [position]="'UI/UX Designer'"
-                [description]="'„Věřím, že design není jen o vzhledu. Je to o harmonii funkce a citu, o schopnosti provést uživatele prostředím, které je srozumitelné, příjemné a přirozené. Každý pixel má své místo. Každé rozhodnutí má smysl. A stejně jako hudba nebo obraz – i digitální produkt může mít duši.“'"
-            />
-       
-            
-        </div>
-        
-      
-    </div>
-</div>
+  <h2>Small Team, Big Ideas</h2>
+  <p>
+    Jsme sice malý tým, ale naše oddanost a kreativita neznají hranic. Každému projektu věnujeme plnou pozornost,
+    hluboké know-how a individuální přístup.
+  </p>
 
+  <div class="carousel-container">
+    <button class="carousel-btn prev-btn" (click)="previousCard()" [class.disabled]="currentIndex === 0" *ngIf="isMobile">
+      ‹
+    </button>
+
+    <div class="card-grid" #cardGrid>
+      <app-about-us-card
+        [imageUrl]="'https://media.licdn.com/dms/image/v2/D4E03AQFxAjdx65J4NQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1720036174465?e=1755129600&v=beta&t=PpTv_vLrutvRKz6WpubxVtztA6JnGMHniI_LI_qcI-Q'"
+        [nameSurname]="'Max Bulanovich'"
+        [position]="'Mobile Developer & Project Lead'"
+        [description]="'Každý řádek kódu...'">
+      </app-about-us-card>
+
+      <app-about-us-card
+        [imageUrl]="'/assets/people/sergei.png'"
+        [nameSurname]="'Sergei Voytenkov'"
+        [position]="'Flutter Developer'"
+        [description]="'Tvorba kódu je pro mě...'">
+      </app-about-us-card>
+
+      <app-about-us-card
+        [imageUrl]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOuxrvcNMfGLh73uKP1QqYpKoCB0JLXiBMvA&s'"
+        [nameSurname]="'Ulan'"
+        [position]="'UI/UX Designer'"
+        [description]="'Věřím, že design není jen o vzhledu...'">
+      </app-about-us-card>
+
+      <app-about-us-card
+        [imageUrl]="'/assets/people/andrej.png'"
+        [nameSurname]="'Andrej Manajlo'"
+        [position]="'Web Developer & Designer'"
+        [description]="'Tvořím s radostí a smyslem pro užitek...'">
+      </app-about-us-card>
+    </div>
+
+    <button class="carousel-btn next-btn" (click)="nextCard()" [class.disabled]="currentIndex === totalCards - 1" *ngIf="isMobile">
+      ›
+    </button>
+  </div>
+</div>

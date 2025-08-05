@@ -15,9 +15,10 @@ export class HeaderComponent {
   }
 
   goToContact() {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.location.hash = 'contact';
+  }
+
+  goToAboutUs() {
+    window.location.hash = 'about';
   }
 }
