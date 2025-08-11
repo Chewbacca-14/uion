@@ -12,25 +12,25 @@ import { ProductCardComponent } from '../../shared/components/product-card/produ
 export class OurServicesComponent {
   cards = [
     {
-      icon: '/assets/icons/website.png',
+      icon: '/assets/icons/landingicon.png',
       title: 'Landing Page',
       description:
         'Optimalizované vstupní stránky, které zaujmou návštěvníky, jasně komunikují hodnotu a zvýší vaše konverze.',
     },
     {
-      icon: '/assets/icons/mobile.png',
+      icon: '/assets/icons/mobileappicon.png',
       title: 'Mobilní a webové aplikace',
       description:
         'Vyvíjíme rychlé a spolehlivé mobilní aplikace pro iOS i Android pomocí Flutteru i moderní webové aplikace, které posouvají vaše podnikání vpřed.',
     },
     {
-      icon: '/assets/icons/internet.png',
+      icon: '/assets/icons/website_icon.png',
       title: 'Webové stránky',
       description:
         'Navrhujeme moderní, přehledné a responzivní webové stránky šité na míru vašim potřebám a cílové skupině.',
     },
     {
-      icon: '/assets/icons/design.png',
+      icon: '/assets/icons/uiuxicon.png',
       title: 'UI/UX a Branding',
       description:
         'Vytváříme design, který zaujme a usnadní používání – funkční, intuitivní a vizuálně atraktivní, podporující vaši značku.',
