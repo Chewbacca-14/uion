@@ -15,8 +15,9 @@ export class StepsComponent implements AfterViewInit {
   @ViewChild('grid', {static: false}) gridRef!: ElementRef<HTMLDivElement>;
 
   stepsCount = 8;
-  stepSize = 72;
+  stepSize = 85;
   arcRadius = 75.3;
+  private edgeOvershoot = 400; // stays large; final rx is constrained dynamically
 
   ngAfterViewInit(): void {
     this.drawZigzag();
@@ -28,89 +29,122 @@ export class StepsComponent implements AfterViewInit {
   }
 
   private drawZigzag(): void {
-    const perRow = this.getPerRow();
     const svg = this.svgRef.nativeElement;
+    const gridEl = this.gridRef.nativeElement;
+    const stepEls = Array.from(gridEl.querySelectorAll('.step')) as HTMLElement[];
+    if (!stepEls.length) return;
 
-    const windowWidth = window.innerWidth;
+    const perRow = this.getPerRow();
+    const rows = Math.ceil(stepEls.length / perRow);
 
-    let direction = 1;
-    let x = 70;
-    let y = 35;
-    let gap = 400;
+    const gridRect = gridEl.getBoundingClientRect();
+    svg.setAttribute('width', `${gridRect.width}`);
+    svg.setAttribute('height', `${gridRect.height}`);
+    svg.innerHTML = '';
 
-    if (windowWidth > 1600) {
-      gap = 400
-    }else if (windowWidth > 1400) {
-      gap = 300
-    } else if (windowWidth > 1200) {
-      gap = 200
-    } else if (windowWidth > 992) {
-      gap = 150
-    } else if (windowWidth > 576) {
-      gap = 100
-    } else if (windowWidth > 480) {
-      gap = 60
+    const centers = stepEls.map(el => {
+      const r = el.getBoundingClientRect();
+      return { x: r.left - gridRect.left + r.width / 2, y: r.top - gridRect.top + r.height / 2 };
+    });
+
+    // serpentine order
+    const order: number[] = [];
+    for (let row = 0; row < rows; row++) {
+      const start = row * perRow;
+      const end = Math.min(start + perRow, stepEls.length);
+      const indices = Array.from({length: end - start}, (_, i) => start + i);
+      if (row % 2 === 1) indices.reverse();
+      order.push(...indices);
     }
 
-    const rows = Math.ceil(this.stepsCount / perRow);
-    const totalWidth = perRow * this.stepSize + (perRow - 1) * gap;
-    const totalHeight = rows * this.stepSize + (rows - 1) * gap;
+    let d = `M ${centers[order[0]].x} ${centers[order[0]].y}`;
 
-    svg.setAttribute('width', `${totalWidth + 100}`);
-    svg.setAttribute('height', `${totalHeight + 100}`);
+    for (let i = 1; i < order.length; i++) {
+      const prevIdx = order[i - 1];
+      const currIdx = order[i];
+      const p1 = centers[prevIdx];
+      const p2 = centers[currIdx];
+
+      const rowPrev = Math.floor(prevIdx / perRow);
+      const rowCurr = Math.floor(currIdx / perRow);
+
+      if (rowPrev === rowCurr) {
+        // same row: straight line
+        d += ` L ${p2.x} ${p2.y}`;
+      } else {
+        // Enhanced pronounced half-circle turn
+        const direction = (rowPrev % 2 === 0) ? 1 : -1; // which side to bulge
+        const deltaY = p2.y - p1.y;
+        const ry = deltaY / 2; // vertical radius (fixed for a half-height)
+        // Base expansion factor by viewport size (smaller screens -> smaller horizontal span)
+        const vw = window.innerWidth;
+        const expansion =
+          vw < 480 ? 0.65 :
+          vw < 640 ? 0.8 :
+          vw < 768 ? 1.0 :
+          vw < 1024 ? 1.15 :
+          1.3; // large screens: stronger arc
+        let desiredRx = ry * expansion;
+
+        // Limit by configured overshoot
+        desiredRx = Math.min(desiredRx, this.edgeOvershoot);
+
+        // Constrain so arc stays inside SVG width
+        const safety = 6;
+        if (direction === 1) {
+          const spaceRight = (gridRect.width - p1.x) - safety;
+          desiredRx = Math.min(desiredRx, spaceRight);
+        } else {
+          const spaceLeft = p1.x - safety;
+          desiredRx = Math.min(desiredRx, spaceLeft);
+        }
+
+        // Ensure it's at least a semicircle (>= ry) for "strong" curve; clamp lower bound
+        const rx = Math.max(ry, desiredRx);
+
+        // Arc flags: largeArcFlag=0 (half), sweepFlag controls side
+        const sweepFlag = direction === 1 ? 1 : 0;
+
+        d += ` A ${rx} ${ry} 0 0 ${sweepFlag} ${p2.x} ${p2.y}`;
+      }
+    }
+
+    // gradient (unchanged)
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    gradient.setAttribute('id', 'connectorGradient');
+    gradient.setAttribute('x1', '0');
+    gradient.setAttribute('y1', '0');
+    gradient.setAttribute('x2', `${gridRect.width}`);
+    gradient.setAttribute('y2', '0');
+    gradient.setAttribute('gradientUnits', 'userSpaceOnUse');
+    [
+      {o: '0%', c: '#d5ecff'},
+      {o: '50%', c: '#b6e0ff'},
+      {o: '100%', c: '#8dccff'}
+    ].forEach(s => {
+      const stop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      stop.setAttribute('offset', s.o);
+      stop.setAttribute('stop-color', s.c);
+      gradient.appendChild(stop);
+    });
+    defs.appendChild(gradient);
 
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    let d = '';
-
-
-    d += `M ${x},${y} `;
-
-    for (let row = 0; row < rows; row++) {
-      const isLastRow = row === rows - 1;
-      const startX = direction === 1 ? x : x + (perRow - 1) * (this.stepSize + gap);
-      const nextX = direction === 1 ? startX - this.stepSize : this.stepSize + (perRow - 1) * (this.stepSize + gap);
-      const endX = direction === 1 ? startX + ((perRow - 1) * (this.stepSize + gap) + this.stepSize) : x;
-
-      if (isLastRow) {
-        const remainingSteps = this.stepsCount - (row * perRow);
-        const lastStepX = direction === 1 
-          ? startX + ((remainingSteps - 1) * (this.stepSize + gap))
-          : startX - ((remainingSteps - 1) * (this.stepSize + gap));
-        d += `L ${lastStepX},${y} `;
-      } else {
-        d += `L ${endX},${y} `;
-      }
-
-      if (!isLastRow) {
-        d += `M ${endX},${y} `;
-
-        y += this.arcRadius * 2;
-
-        const arcDir = direction === 1 ? 1 : 0;
-        d += `A ${this.arcRadius} ${this.arcRadius} 0 0 ${arcDir} ${endX} ${y} `;
-
-        d += `L ${nextX} ${y} `;
-        d += `M ${nextX},${y} `;
-
-        y += this.arcRadius * 2;
-
-        d += `A ${this.arcRadius} ${this.arcRadius} 0 0 ${arcDir === 1 ? 0 : 1} ${nextX} ${y} `;
-      }
-    }
-
     path.setAttribute('d', d);
-    path.setAttribute('stroke', '#3fa9f5');
-    path.setAttribute('stroke-width', '4');
+    path.setAttribute('stroke', 'url(#connectorGradient)');
+    path.setAttribute('stroke-width', '3');
     path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
 
-    svg.innerHTML = '';
+    svg.appendChild(defs);
     svg.appendChild(path);
   }
 
   private getPerRow(): number {
     const children = Array.from(this.gridRef.nativeElement.children);
     if (children.length < 2) return 1;
-
     const top = (children[0] as HTMLElement).offsetTop;
     let count = 1;
     for (let i = 1; i < children.length; i++) {

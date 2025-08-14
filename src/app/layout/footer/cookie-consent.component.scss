@@ -2,11 +2,14 @@
 .cookie-banner {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  box-sizing: border-box; /* include padding inside total width */
   background: #222;
   color: #fff;
   padding: 1rem;
   z-index: 1000;
+  overflow: visible; /* ensure absolutely positioned panel can extend outside */
 }
 
 .banner-content {
@@ -42,6 +45,7 @@
   display: flex;
   gap: 10px;
   flex-shrink: 0;
+  position: relative;
 }
 
 .buttons button {
@@ -92,9 +96,9 @@
 
 /* Edit panel */
 .edit-panel {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
+  position: absolute;
+  bottom: calc(100% + 12px); /* sit above the button group */
+  right: 0;
   width: 300px;
   background: #fff;
   border-radius: 10px;
@@ -102,6 +106,18 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   z-index: 1100;
   font-family: sans-serif;
+}
+
+.edit-panel::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 28px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .edit-panel h4 {
@@ -123,6 +139,18 @@
   font-family: "Generalsans", sans-serif;
   margin-bottom: 40px;
   text-align: left;
+}
+
+/* Mobile: let the panel span width so it doesn't overflow */
+@media (max-width: 600px) {
+  .edit-panel {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+  .edit-panel::after {
+    right: 40px;
+  }
 }
 
 /* Cards */

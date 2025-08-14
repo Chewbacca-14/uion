@@ -23,7 +23,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 90px); /* максимум 3 колонки */
-  row-gap: 200px;
+  row-gap: 180px; // reduced vertical spacing
   column-gap: 400px;
   position: relative;
   z-index: 1;
@@ -66,8 +66,8 @@
 
 .step {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 85px;
+  height: 85px;
   border: 1px solid #ecedee;
   border-radius: 50%;
   font-size: 32px;
@@ -90,23 +90,32 @@
     .titlee {
       margin-top: 3px;
       color: #000000;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: 0.32px;
       text-align: center;
       color: #252525;
       font-family: "Generalsans", sans-serif;
       margin-bottom: 9px;
+      display: flex;
+      flex-direction: column; // stack number above title
+      gap: 5px; // vertical space between number and title
+
+      .step-number {
+        color: #5fa8ff;
+        font-weight: 600;
+      }
     }
 
     .desc {
-      color: #4b5563; /* gray-600 */
-      max-width: 140px;
-      font-weight: 400;
+      color: #3f3f3fe0;
+      font-weight: 300;
+      max-width: 180px;
       font-size: 13px;
-      letter-spacing: 0.18px;
+      letter-spacing: 0.45px;
       text-align: center;
-      line-height: 12px;
+      line-height: 14px;
+      font-family: "Generalsans", sans-serif;
     }
   }
 }

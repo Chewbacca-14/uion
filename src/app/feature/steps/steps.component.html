@@ -1,70 +1,152 @@
 <div id="steps" class="after-header-text">
- <h2>Průběh spolupráce</h2>
-<p>
-Od prvního nápadu až po finální spuštění – provázíme vás celým procesem vývoje. Jasně, srozumitelně a vždy s důrazem na vaše cíle.
-</p>
-
+  <style>
+    /* Light (brighter) blue tint without transparency */
+    .step img.icon-blue {
+      filter: invert(31%) sepia(52%) saturate(420%) hue-rotate(190deg)
+    brightness(130%) contrast(90%);
+      /* removed opacity + hover transparency */
+    }
+  </style>
+  <h2>Průběh spolupráce</h2>
+  <p>
+    Od prvního nápadu až po finální spuštění – provázíme vás celým procesem
+    vývoje. Jasně, srozumitelně a vždy s důrazem na vaše cíle.
+  </p>
 </div>
 <div class="container">
   <svg class="connector" #svgConnector></svg>
   <div class="grid" #grid id="steps">
     <div class="step border-light">
-  <img ngSrc="assets/icons/34cf3f7ba801f012b0bd57b95a2854e639c47fc9.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Úvod</div>
-    <div class="desc">Seznamujeme se s vašimi cíli a vizí projektu.</div>
-  </div>
-</div>
-<div class="step">
-  <img ngSrc="assets/icons/2b1d83b8edc35c5ce0885855058bb42919a61ffb.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Průzkum</div>
-    <div class="desc">Analyzujeme trh, konkurenci a hledáme nejlepší řešení.</div>
-  </div>
-</div>
-<div class="step">
-  <img ngSrc="assets/icons/22e0338b18b570287d96876bacf76849478685eb.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Koncept</div>
-    <div class="desc">Navrhujeme strukturu, obsah a směr celého projektu.</div>
-  </div>
-</div>
-<div class="step">
-  <img ngSrc="assets/icons/495ec3c3c85b699acb0612e56ebda7c56da0699a.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Návrh</div>
-    <div class="desc">Připravujeme moderní a funkční vizuální návrh.</div>
-  </div>
-</div>
-<div class="step border-light">
-  <img ngSrc="assets/icons/1fcc613b3706d55099b621980a15d2567754ac15.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Vývoj</div>
-    <div class="desc">Programujeme a implementujeme klíčové funkce.</div>
-  </div>
-</div>
-<div class="step">
-  <img ngSrc="assets/icons/004ba232d021f835f7e0dc438781baf466ec8ff6.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Náhled</div>
-    <div class="desc">Sdílíme první verzi a sbíráme vaši zpětnou vazbu.</div>
-  </div>
-</div>
-<div class="step">
-  <img ngSrc="assets/icons/4ec19940055789debc02dfa6b548a0e51f9cd251.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Testování</div>
-    <div class="desc">Důkladně testujeme výkon, responzivitu i stabilitu.</div>
-  </div>
-</div>
-<div class="step border-light">
-  <img ngSrc="assets/icons/69394be05937f95a1577e848b4fafba5a9730e99.png" alt="" height="32" width="32">
-  <div class="tool">
-    <div class="titlee">Spuštění</div>
-    <div class="desc">Nasazujeme projekt do ostrého provozu a dolaďujeme detaily.</div>
+      <img class="icon-blue"
+        ngSrc="assets/icons/play.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">1</span>
+          <span class="step-title-text">Úvod</span>
+        </div>
+        <div class="desc">Seznamujeme se s vašimi cíli a vizí projektu.</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="icon-blue"
+        ngSrc="assets/icons/search.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">2</span>
+            <span class="step-title-text">Průzkum</span>
+        </div>
+        <div class="desc">
+          Analyzujeme trh, konkurenci a hledáme nejlepší řešení.
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="icon-blue"
+        ngSrc="assets/icons/lightbulb.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">3</span>
+          <span class="step-title-text">Koncept</span>
+        </div>
+        <div class="desc">
+          Navrhujeme strukturu, obsah a směr celého projektu.
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="icon-blue"
+        ngSrc="assets/icons/pen.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">4</span>
+          <span class="step-title-text">Návrh</span>
+        </div>
+        <div class="desc">Připravujeme moderní a funkční vizuální návrh.</div>
+      </div>
+    </div>
+    <div class="step border-light">
+      <img class="icon-blue"
+        ngSrc="assets/icons/code.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">5</span>
+          <span class="step-title-text">Vývoj</span>
+        </div>
+        <div class="desc">Programujeme a implementujeme klíčové funkce.</div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="icon-blue"
+        ngSrc="assets/icons/eye.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">6</span>
+          <span class="step-title-text">Náhled</span>
+        </div>
+        <div class="desc">
+          Sdílíme první verzi a sbíráme vaši zpětnou vazbu.
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <img class="icon-blue"
+        ngSrc="assets/icons/flask-conical.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">7</span>
+          <span class="step-title-text">Testování</span>
+        </div>
+        <div class="desc">
+          Důkladně testujeme výkon, responzivitu i stabilitu.
+        </div>
+      </div>
+    </div>
+    <div class="step border-light">
+      <img class="icon-blue"
+        ngSrc="assets/icons/rocket copy.svg"
+        alt=""
+        height="32"
+        width="32"
+      />
+      <div class="tool">
+        <div class="titlee">
+          <span class="step-number">8</span>
+          <span class="step-title-text">Spuštění</span>
+        </div>
+        <div class="desc">
+          Nasazujeme projekt do ostrého provozu a dolaďujeme detaily.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-    
-  </div>
-</div>
+ 
