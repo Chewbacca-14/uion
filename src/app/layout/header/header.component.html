@@ -1,24 +1,33 @@
 <header class="header" id="site-header">
-    <img src="/assets/icons/uion_black.svg" alt="Check" class="logo"/>
+    <img src="/assets/icons/uion_black.svg"
+         alt="Check"
+         class="logo"
+         [class.inverted]="menuOpen"
+         (click)="scrollToTop()"/>
     <nav [class.open]="menuOpen">
       <div>
         <ul class="nav-list">
-          <li><a href="#our-services">Naše Služby</a></li>
-      <li><a href="#technologies">Technologie</a></li>
-      <li><a href="#about">O nás</a></li>
-       <li><a href="#steps">Náš proces</a></li>
-         <li><a href="#why-us">Proč právě my</a></li>
+          <li><a href="#our-services" (click)="onNavLinkClick()">Naše Služby</a></li>
+          <li><a href="#technologies" (click)="onNavLinkClick()">Technologie</a></li>
+          <li><a href="#about" (click)="onNavLinkClick()">O nás</a></li>
+          <li><a href="#steps" (click)="onNavLinkClick()">Náš proces</a></li>
+          <li><a href="#why-us" (click)="onNavLinkClick()">Proč právě my</a></li>
         </ul>
-          <button class="btn-primary" (click)="goToContact()">Kontaktujte nás nyní</button>
+         <button class="btn-primary-mobile" (click)="goToContact()">Kontaktujte nás nyní</button>
       </div>
     </nav>
        <button class="btn-primary contacts-desctop" (click)="goToContact()">Kontaktujte nás nyní</button>
-    <button class="menu-toggle" (click)="toggleMenu()">
-      {{menuOpen ? "✕" : "☰"}}
+   
+    <button class="menu-toggle"
+          (click)="toggleMenu()"
+          [class.open]="menuOpen"
+          [attr.aria-label]="menuOpen ? 'Zavřít menu' : 'Otevřít menu'">
+      <img [src]="menuOpen ? '/assets/icons/x.svg' : '/assets/icons/menu.svg'"
+           [alt]="menuOpen ? 'Ikona zavřít' : 'Ikona menu'"/>
+     
     </button>
   </header>
 <div class="header-wrapper">
-
   <div class="header-container">
     <div class="after-header-text">
       <div class="row-with-icon">

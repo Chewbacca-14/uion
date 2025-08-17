@@ -35,11 +35,20 @@ export class HeaderComponent implements AfterViewInit {
     this.menuOpen = !this.menuOpen;
   }
 
+  onNavLinkClick() {
+    this.menuOpen = false;
+  }
+
   goToContact() {
+    this.menuOpen = false;
     window.location.hash = 'contact';
   }
 
   goToAboutUs() {
     window.location.hash = 'about';
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

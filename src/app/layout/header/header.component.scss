@@ -14,6 +14,52 @@
   }
 }
 
+/* Logo hover shrink */
+.logo {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  position: relative; /* create stacking context */
+  z-index: 1101; /* above nav (1000) and menu button (1100) if needed */
+}
+.logo:hover {
+  transform: scale(0.9);
+}
+
+/* Invert logo when menu open (dark background) */
+.logo.inverted {
+  filter: invert(1) brightness(2);
+  transition: filter 0.25s ease;
+}
+
+/* Unified menu icon styling + remove tap highlight */
+.menu-toggle {
+  background: none;
+  border: none;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent; /* remove splash on mobile */
+  touch-action: manipulation;
+}
+.menu-toggle:focus {
+  outline: none;
+}
+.menu-toggle img {
+  width: 32px;
+  height: 32 px;
+  display: block;
+  pointer-events: none;
+  /* Dark gray (dark grez) look */
+  filter: grayscale(1) brightness(0.35) contrast(0.2);
+  transition: filter 0.25s ease;
+}
+
+/* Make the X icon white when menu is open */
+.menu-toggle.open img {
+  filter: invert(1) brightness(2) contrast(1.1);
+}
+
 .header-wrapper {
   background-image: url("https://cdn.prod.website-files.com/67fff553ec88de21fc1fd835/67fff554ec88de21fc1fdf90_Modern%20-%202.svg");
   background-position: 50% 0;
@@ -44,7 +90,7 @@
   width: -webkit-fill-available;
   top: 0;
   z-index: 9999;
-  margin: 30px 30px;
+  margin: 20px 30px;
   transition: all 0.3s ease;
 
   /* Glass effect */
@@ -118,7 +164,7 @@ nav a:hover {
   .nav-list {
     width: 100%;
     padding: 20px;
-    background: white;
+    background: #262626; /* unified dark bg */
   }
 
   .nav-list li {
@@ -277,15 +323,69 @@ nav a:hover {
 
 nav.open {
   left: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
+
+/* MOBILE OPEN NAV CUSTOMIZATION */
+@media (max-width: 768px) {
+  nav.open {
+    background-color: #262626; /* was white -> dark so white (inverted) logo is visible */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding-top: 65px;
+    transition: left 0.3s ease, background 0.3s ease;
+    animation: mobileNavSlide 0.35s ease forwards;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+  }
+
+  nav.open {
+    border-top: 1px solid #303030; /* Optionally keep a subtle border to separate header area */
+  }
+
+  nav.open .nav-list {
+    background-color: #262626;
+  }
+
+  nav.open .nav-list li {
+    padding: 10px 0;
+  }
+
+  nav.open .nav-list a {
+    font-size: 1.25rem;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background-color: #262626;
+    color: #f5f5f5;
+    font-family: "Geist", sans-serif;
+    font-weight: 500;
+  }
+
+  nav.open .nav-list a:hover {
+    background-color: #303030;
+    color: #008bee;
+  }
+
+  @keyframes mobileNavSlide {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* END MOBILE OPEN NAV CUSTOMIZATION */
 
 .menu-toggle {
   display: none;
   top: 20px;
   left: 20px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: transparent; /* remove white square */
+  color: #f5f5f5;
   border: none;
   font-size: 2rem;
   cursor: pointer;
@@ -322,7 +422,7 @@ nav.open {
     top: 0;
     left: -100%;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #262626;
     color: #fff;
     display: none;
     flex-direction: column;
@@ -346,7 +446,7 @@ nav.open {
 
     div {
       padding: 1rem;
-      background-color: white;
+      background-color: #262626; /* remove white block */
     }
   }
 
@@ -357,6 +457,15 @@ nav.open {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  /* Mobile-specific link overrides */
+  nav ul a {
+    color: #f5f5f5; /* readable on dark */
+  }
+  nav ul a:hover {
+    background-color: #303030; /* subtle dark hover */
+    color: #008bee;
   }
 
   .menu-toggle {
@@ -409,7 +518,7 @@ nav.open {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #222;
+    background-color: #262626; // match dropdown color
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
     width: 100%;
     min-height: 100vh;
@@ -417,6 +526,14 @@ nav.open {
     transition: 0.6s ease-in-out;
     z-index: 10;
     gap: 25px;
+  }
+}
+
+/* Optional: ensure any stray white backgrounds inside mobile nav become dark */
+@media (max-width: 768px) {
+  nav.open .nav-list,
+  nav.open .nav-list a {
+    background-color: #262626;
   }
 }
 
@@ -428,4 +545,33 @@ nav.open {
   .contacts-desctop {
     display: none !important;
   }
+}
+.contacts-desctop {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .contacts-desctop {
+    display: none !important;
+  }
+}
+
+.btn-primary-mobile {
+  height: 44px;
+  padding: 0 24px;
+  border: none;
+  background-color: white !important;
+  color: #242424 !important;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.btn-primary-mobile:hover {
+  background-color: #008bee;
+  color: white;
+  cursor: pointer;
 }
