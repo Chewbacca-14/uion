@@ -335,7 +335,7 @@ nav.open {
     padding-top: 65px;
     transition: left 0.3s ease, background 0.3s ease;
     animation: mobileNavSlide 0.35s ease forwards;
-    border-radius: 20px;
+    border-radius: 32px;
   }
 
   nav.open {
@@ -445,9 +445,7 @@ nav.open {
 
     div {
       padding: 1rem;
-      background-color: red; /* remove white block */
-      border-bottom-left-radius: 32px;
-      border-bottom-right-radius: 32px;
+      background-color: 242424; /* remove white block */
     }
   }
 
