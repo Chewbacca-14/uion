@@ -9,9 +9,7 @@ import { ContactsComponent } from '../../feature/contacts/contacts.component';
 import { FaqComponent } from '../../feature/faq/faq.component';
 import { WorkStepsComponent } from '../../feature/work-steps/work-steps.component';
 import { StepsComponent } from '../../feature/steps/steps.component';
-import { SeoService } from '../../services/seo.service';
-import { inject } from '@vercel/analytics';
-import { RouterModule } from '@angular/router';
+import { ScrollAnimateDirective } from '../../scroll-animate.directive';
 
 @Component({
   selector: 'app-home',
@@ -26,18 +24,19 @@ import { RouterModule } from '@angular/router';
     WorkStepsComponent,
     StepsComponent,
     FaqComponent,
+    ScrollAnimateDirective, // <- add directive here
   ],
   template: `
     <app-header></app-header>
-    <app-our-services></app-our-services>
-    <app-technologies></app-technologies>
-    <app-about-us></app-about-us>
-    <app-steps></app-steps>
-    <app-why-choose-us></app-why-choose-us>
-    <app-work-steps></app-work-steps>
-    <app-contacts></app-contacts>
-    <app-faq></app-faq>
+    <app-our-services ></app-our-services>
+    <app-technologies appScrollAnimate></app-technologies>
+    <app-about-us appScrollAnimate></app-about-us>
+    <app-steps appScrollAnimate></app-steps>
+    <app-why-choose-us appScrollAnimate></app-why-choose-us>
+    <app-work-steps appScrollAnimate></app-work-steps>
+    <app-contacts appScrollAnimate></app-contacts>
+    <app-faq appScrollAnimate></app-faq>
   `,
-  styleUrl: './home.component.scss',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {}

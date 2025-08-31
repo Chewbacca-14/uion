@@ -19,9 +19,9 @@ export class HeaderComponent implements AfterViewInit {
       (e: Event) => {
         const currentScrollY = (e.target as HTMLElement).scrollTop;
 
-        if (currentScrollY > lastScrollY) {
+        if (currentScrollY > lastScrollY && currentScrollY > 1) {
           header.classList.add('shrink');
-        } else if (currentScrollY < lastScrollY) {
+        } else if (currentScrollY < lastScrollY && currentScrollY > 1) {
           header.classList.remove('shrink');
         }
 
