@@ -83,6 +83,7 @@ p {
 
 /* ------------------ ACTION CARD ------------------ */
 
+/* COMMENTED OUT: old action card styles
 .action-card {
   width: 100%;
   max-width: 1200px;
@@ -215,5 +216,214 @@ p {
     font-size: 0.9rem;
     line-height: 1.3rem;
     text-align: left;
+  }
+}
+
+/* Hide old action card (in case markup remains) */
+.action-card {
+  display: none !important;
+}
+
+/* .btn-secondary and other styles remain available */
+
+.btn-secondary {
+  height: 44px;
+  padding: 0 24px;
+  background-color: transparent;
+  color: #242424;
+  border: 1px solid #242424;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: scale(0.96);
+  cursor: pointer;
+}
+
+/* ---------- NEW: compact promo/action card (screenshot-like) ---------- */
+
+.cta-offer-card {
+  width: 100%;
+  max-width: 380px;
+  margin: 24px auto 0;
+  padding: 22px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #ecedee;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+  animation: fadeInSlide 0.9s ease-out forwards;
+  opacity: 0;
+
+  h3 {
+    margin: 0 0 8px 0;
+    font-family: "Geist", sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    color: #1f2937;
+    text-align: left;
+  }
+
+  p {
+    margin: 0 0 14px 0;
+    font-size: 0.95rem;
+    line-height: 1.35rem;
+    color: #475569;
+    text-align: left;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 18px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.3rem;
+      font-family: "Generalsans", sans-serif;
+      font-weight: 400;
+    }
+
+    .ico {
+      flex: 0 0 30px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+
+      /* icon glyph via mask; if asset missing, a small dot is shown */
+      &::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: #2563eb;
+        mask: var(--mask) no-repeat center / contain;
+        -webkit-mask: var(--mask) no-repeat center / contain;
+        border-radius: 2px;
+      }
+
+      /* Map classes to assets (replace with your own if needed) */
+      &.globe {
+        --mask: url("../../../assets/icons/mail.svg");
+      }
+      &.calendar {
+        --mask: url("../../../assets/icons/mail.svg");
+      }
+      &.seo {
+        --mask: url("../../../assets/icons/mail.svg");
+      }
+      &.responsive {
+        --mask: url("../../../assets/icons/mail.svg");
+      }
+      &.uiux {
+        --mask: url("../../../assets/icons/mail.svg");
+      }
+    }
+  }
+}
+
+/* Use global primary button; only layout in this component */
+.cta-offer-card .btn-primary {
+  width: 100%;
+}
+
+/* --------- Responsive tweaks for the new promo card --------- */
+
+/* Medium screens: slightly larger card and two-column feature list */
+@media (min-width: 720px) {
+  .cta-offer-card {
+    max-width: 420px;
+    padding: 24px;
+
+    .features {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+    }
+  }
+}
+
+/* Desktop: expand to full width like .action-card and use same bg image */
+@media (min-width: 1024px) {
+  .cta-offer-card {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #f5f6f8;
+    background-image: linear-gradient(
+        rgba(245, 246, 248, 0.7),
+        rgba(245, 246, 248, 0.7)
+      ),
+      url("../../../assets/icons/grid-bg.svg");
+    background-size: contain;
+    background-position: center;
+    border: 1px solid #ecedee;
+    border-radius: 0.75rem;
+    box-shadow: none;
+    transition: transform 0.18s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    h3 {
+      font-family: "Geist", sans-serif;
+      font-weight: 600;
+      font-size: 3rem;
+      line-height: 3.5rem;
+      color: #242424;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.5rem;
+      color: #3f3f3fe0;
+      font-weight: 300;
+      font-size: 1rem;
+      font-family: "Generalsans", sans-serif;
+      text-align: left;
+    }
+
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 20px;
+    }
+
+    /* keep global primary button visuals; only adjust width */
+    .btn-primary {
+      width: auto;
+    }
+  }
+}
+
+/* Small screens: full-width look */
+@media (max-width: 600px) {
+  .cta-offer-card {
+    max-width: 92%;
+    padding: 18px;
+    border-radius: 12px;
+
+    .features li {
+      font-size: 0.95rem;
+    }
   }
 }

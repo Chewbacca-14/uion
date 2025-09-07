@@ -1,103 +1,106 @@
-<div id="contact" class="contact-row">
-    <div class="left-container">
-        <div>
-            <h3>Kontaktujte nás</h3>
-            <p>
-                Máte-li jakékoli dotazy, neváhejte nás kontaktovat. Rádi vám pomůžeme s vašimi potřebami.
-            </p>
-            <div class="divider"></div>
-        </div>
-        <div class="tiles">
-            <app-list-tile [title]="'Zavolejte nám'" [subtitle]="'+420 703 132 475'" [iconPath]="'/assets/icons/phone_icon.svg'"></app-list-tile>
-            <app-list-tile [title]="'Napište nám'" [subtitle]="'max@uion.cz'" [iconPath]="'/assets/icons/mail_icon.svg'"></app-list-tile>
-            <app-list-tile [title]="'Naše lokalita'" [subtitle]="'Praha, Česka Republika'" [iconPath]="'/assets/icons/location_small_icon.svg'"></app-list-tile>
-        </div>
-        <div class="divider"></div>
-        <div class="bottom-icon-row">
-            <img src="/assets/icons/instagram_icon.svg" alt="instagram">
-            <img src="/assets/icons/linkedin_icon.svg" alt="linekdin">
-        </div>
+<div class="contact-row">
+  <div class="left-container">
+    <div>
+      <h3>Kontaktujte nás</h3>
+      <p>
+        Máte-li jakékoli dotazy, neváhejte nás kontaktovat. Rádi vám pomůžeme s vašimi potřebami.
+      </p>
+      <div class="divider"></div>
     </div>
-    <div class="right-container">
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div class="form-column">
-
-      <div class="form-field">
-        <label for="name">
-          Jméno a příjmení
-          <span class="required-star">*</span>
-        </label>
-        <input
-          type="text"
-          id="name"
-          formControlName="name"
-          placeholder="Jméno a příjmení"
-        />
-        <div
-          class="error-message"
-          *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-        >
-          Jméno je povinné.
-        </div>
-      </div>
-
-      <div class="form-field">
-        <label for="phone">Telefonní číslo</label>
-        <input
-          type="text"
-          id="phone"
-          formControlName="phone"
-          placeholder="Telefonní číslo"
-        />
-      </div>
-
-      <div class="form-field">
-        <label for="email">
-          Email
-          <span class="required-star">*</span>
-        </label>
-        <input
-          type="email"
-          id="email"
-          formControlName="email"
-          placeholder="Email"
-        />
-        <div
-          class="error-message"
-          *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-        >
-          Email je povinný a musí být validní.
-        </div>
-      </div>
-
-      <div class="form-field">
-        <label for="message">
-          Zanechte nám zprávu
-          <span class="required-star">*</span>
-        </label>
-        <textarea
-          id="message"
-          formControlName="message"
-          placeholder="Zanechte nám zprávu"
-        ></textarea>
-        <div
-          class="error-message"
-          *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
-        >
-          Zpráva je povinná.
-        </div>
-      </div>
-
+    <div class="tiles">
+      <app-list-tile [title]="'Zavolejte nám'" [subtitle]="'+420 703 132 475'"
+                     [iconPath]="'/assets/icons/phone_icon.svg'"></app-list-tile>
+      <app-list-tile [title]="'Napište nám'" [subtitle]="'max@uion.cz'"
+                     [iconPath]="'/assets/icons/mail_icon.svg'"></app-list-tile>
+      <app-list-tile [title]="'Naše lokalita'" [subtitle]="'Praha, Česka Republika'"
+                     [iconPath]="'/assets/icons/location_small_icon.svg'"></app-list-tile>
     </div>
+    <div class="divider"></div>
+    <div class="bottom-icon-row">
+      <img src="/assets/icons/instagram_icon.svg" alt="instagram">
+      <img src="/assets/icons/linkedin_icon.svg" alt="linekdin">
+    </div>
+  </div>
+  <div class="right-container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-column">
 
-    <button
-      type="submit"
-      [disabled]="contactForm.invalid"
-      class="send-button"
-    >
-      Odeslat formulář
-    </button>
-  </form>
-</div>
+        <div class="form-field">
+          <label for="name">
+            Jméno a příjmení
+            <span class="required-star">*</span>
+          </label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            placeholder="Jméno a příjmení"
+          />
+          <div
+            class="error-message"
+            *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+          >
+            Jméno je povinné.
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Telefonní číslo</label>
+          <input
+            type="text"
+            id="phone"
+            formControlName="phone"
+            placeholder="Telefonní číslo"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="email">
+            Email
+            <span class="required-star">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+          <div
+            class="error-message"
+            *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+          >
+            Email je povinný a musí být validní.
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="message">
+            Zanechte nám zprávu
+            <span class="required-star">*</span>
+          </label>
+          <textarea
+            id="message"
+            formControlName="message"
+            placeholder="Zanechte nám zprávu"
+          ></textarea>
+          <div
+            class="error-message"
+            *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+          >
+            Zpráva je povinná.
+          </div>
+        </div>
+
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="contactForm.invalid"
+        class="send-button"
+      >
+        Odeslat formulář
+      </button>
+    </form>
+  </div>
 
 </div>

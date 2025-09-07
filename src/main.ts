@@ -8,6 +8,6 @@ import { importProvidersFrom } from '@angular/core';
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    importProvidersFrom(BrowserAnimationsModule)  // ✅ correct way
-  ]
+    importProvidersFrom(BrowserAnimationsModule), // ✅ correct way
+  ],
 });

@@ -42,6 +42,11 @@ p {
   display: flex;
 }
 
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .right-container {
   background-color: #f5f6f8;
   border-radius: 0.75rem;
@@ -149,6 +154,13 @@ textarea {
   cursor: not-allowed;
 }
 
+.response-note {
+  margin-top: 0.75rem;
+  color: #6b7280; /* muted gray */
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
 .required-star {
   color: red;
   font-weight: 500;
@@ -162,4 +174,22 @@ textarea {
   align-items: left;
   gap: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 1185px) {
+  .contact-row {
+    padding: 0 20px;
+  }
+
+  .left-container,
+  .right-container {
+    width: 200%;
+  }
+
+  /* When stacked: let it size to content and use fixed spacing between items */
+  .left-container {
+    height: auto;
+    justify-content: flex-start;
+    gap: 40px;
+  }
 }
