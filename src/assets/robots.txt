@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uion.cz/sitemap.xml

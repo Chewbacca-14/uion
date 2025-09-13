@@ -1,18 +1,23 @@
-import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import {NgOptimizedImage} from "@angular/common";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+} from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-steps',
   standalone: true,
-  imports: [
-    NgOptimizedImage
-  ],
+  imports: [NgOptimizedImage],
   templateUrl: './steps.component.html',
-  styleUrl: './steps.component.scss'
+  styleUrl: './steps.component.scss',
 })
 export class StepsComponent implements AfterViewInit {
-  @ViewChild('svgConnector', {static: false}) svgRef!: ElementRef<SVGSVGElement>;
-  @ViewChild('grid', {static: false}) gridRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('svgConnector', { static: false })
+  svgRef!: ElementRef<SVGSVGElement>;
+  @ViewChild('grid', { static: false }) gridRef!: ElementRef<HTMLDivElement>;
 
   stepsCount = 8;
   stepSize = 85;
@@ -31,7 +36,9 @@ export class StepsComponent implements AfterViewInit {
   private drawZigzag(): void {
     const svg = this.svgRef.nativeElement;
     const gridEl = this.gridRef.nativeElement;
-    const stepEls = Array.from(gridEl.querySelectorAll('.step')) as HTMLElement[];
+    const stepEls = Array.from(
+      gridEl.querySelectorAll('.step')
+    ) as HTMLElement[];
     if (!stepEls.length) return;
 
     const perRow = this.getPerRow();
@@ -42,9 +49,12 @@ export class StepsComponent implements AfterViewInit {
     svg.setAttribute('height', `${gridRect.height}`);
     svg.innerHTML = '';
 
-    const centers = stepEls.map(el => {
+    const centers = stepEls.map((el) => {
       const r = el.getBoundingClientRect();
-      return { x: r.left - gridRect.left + r.width / 2, y: r.top - gridRect.top + r.height / 2 };
+      return {
+        x: r.left - gridRect.left + r.width / 2,
+        y: r.top - gridRect.top + r.height / 2,
+      };
     });
 
     // serpentine order
@@ -52,7 +62,7 @@ export class StepsComponent implements AfterViewInit {
     for (let row = 0; row < rows; row++) {
       const start = row * perRow;
       const end = Math.min(start + perRow, stepEls.length);
-      const indices = Array.from({length: end - start}, (_, i) => start + i);
+      const indices = Array.from({ length: end - start }, (_, i) => start + i);
       if (row % 2 === 1) indices.reverse();
       order.push(...indices);
     }
@@ -73,17 +83,21 @@ export class StepsComponent implements AfterViewInit {
         d += ` L ${p2.x} ${p2.y}`;
       } else {
         // Enhanced pronounced half-circle turn
-        const direction = (rowPrev % 2 === 0) ? 1 : -1; // which side to bulge
+        const direction = rowPrev % 2 === 0 ? 1 : -1; // which side to bulge
         const deltaY = p2.y - p1.y;
         const ry = deltaY / 2; // vertical radius (fixed for a half-height)
         // Base expansion factor by viewport size (smaller screens -> smaller horizontal span)
         const vw = window.innerWidth;
         const expansion =
-          vw < 480 ? 0.65 :
-          vw < 640 ? 0.8 :
-          vw < 768 ? 1.0 :
-          vw < 1024 ? 1.15 :
-          1.3; // large screens: stronger arc
+          vw < 480
+            ? 0.65
+            : vw < 640
+            ? 0.8
+            : vw < 768
+            ? 1.0
+            : vw < 1024
+            ? 1.15
+            : 1.3; // large screens: stronger arc
         let desiredRx = ry * expansion;
 
         // Limit by configured overshoot
@@ -92,7 +106,7 @@ export class StepsComponent implements AfterViewInit {
         // Constrain so arc stays inside SVG width
         const safety = 6;
         if (direction === 1) {
-          const spaceRight = (gridRect.width - p1.x) - safety;
+          const spaceRight = gridRect.width - p1.x - safety;
           desiredRx = Math.min(desiredRx, spaceRight);
         } else {
           const spaceLeft = p1.x - safety;
@@ -111,7 +125,10 @@ export class StepsComponent implements AfterViewInit {
 
     // gradient (unchanged)
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    const gradient = document.createElementNS(
+      'http://www.w3.org/2000/svg',
+      'linearGradient'
+    );
     gradient.setAttribute('id', 'connectorGradient');
     gradient.setAttribute('x1', '0');
     gradient.setAttribute('y1', '0');
@@ -119,11 +136,14 @@ export class StepsComponent implements AfterViewInit {
     gradient.setAttribute('y2', '0');
     gradient.setAttribute('gradientUnits', 'userSpaceOnUse');
     [
-      {o: '0%', c: '#d5ecff'},
-      {o: '50%', c: '#b6e0ff'},
-      {o: '100%', c: '#8dccff'}
-    ].forEach(s => {
-      const stop = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+      { o: '0%', c: '#00c86b9a' },
+      { o: '50%', c: '#00c86b9a' },
+      { o: '100%', c: '#00c86b9a' },
+    ].forEach((s) => {
+      const stop = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'stop'
+      );
       stop.setAttribute('offset', s.o);
       stop.setAttribute('stop-color', s.c);
       gradient.appendChild(stop);

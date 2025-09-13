@@ -195,7 +195,7 @@ nav a:hover {
 /* Large Desktop */
 @media (min-width: 1024px) {
   .after-header-text {
-    max-width: 800px;
+    max-width: 600px;
   }
 }
 
@@ -269,8 +269,8 @@ nav a:hover {
   height: 44px;
   padding: 0 24px;
   border: none;
-  background-color: #242424;
-  color: white;
+  background-color: #00c86b;
+  color: black;
   border-radius: 50px;
   font-size: 1rem;
   font-family: "Geist", sans-serif;
@@ -279,7 +279,7 @@ nav a:hover {
 }
 
 .btn-primary:hover {
-  background-color: #008bee;
+  background-color: #00c86b;
   color: white;
   cursor: pointer;
 }
@@ -362,7 +362,7 @@ nav.open {
 
   nav.open .nav-list a:hover {
     background-color: #303030;
-    color: #008bee;
+    color: #00c86b;
   }
 
   @keyframes mobileNavSlide {
@@ -464,7 +464,7 @@ nav.open {
   }
   nav ul a:hover {
     background-color: #303030; /* subtle dark hover */
-    color: #008bee;
+    color: #00c86b;
   }
 
   .menu-toggle {
@@ -570,7 +570,7 @@ nav.open {
 }
 
 .btn-primary-mobile:hover {
-  background-color: #008bee;
+  background-color: #00c86b;
   color: white;
   cursor: pointer;
 }

@@ -61,12 +61,12 @@
 }
 
 .buttons button:first-child {
-  background: #278aff;
+  background: #00c86b;
   color: #fff;
 }
 
 .buttons button:first-child:hover {
-  background: #278aff;
+  background: #00c86b;
   box-shadow: 0 4px 12px rgba(39, 138, 255, 0.3);
   transform: translateY(-1px);
 }
@@ -264,7 +264,7 @@ input:checked + .slider::before {
 }
 
 .panel-buttons button:hover {
-  background-color: #008bee;
+  background-color: #00c86b;
   color: white;
   cursor: pointer;
 }

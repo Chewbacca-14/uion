@@ -57,7 +57,7 @@
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background-color: #278aff;
+  background-color: #00c86b;
 
   display: flex;
   justify-content: center;
@@ -81,7 +81,7 @@
 
   height: 1px;
   width: 0;
-  background: linear-gradient(to right, transparent, #278aff);
+  background: linear-gradient(to right, transparent, #00c86b);
   transition: width 1.5s ease;
 }
 
@@ -93,7 +93,7 @@
   right: 0;
   height: 1px;
   width: 0;
-  background: linear-gradient(to right, #278aff, transparent);
+  background: linear-gradient(to right, #00c86b, transparent);
   transition: width 1.5s ease;
 }
 
@@ -105,7 +105,7 @@
   top: 0;
   width: 2px;
   height: 0;
-  background: linear-gradient(to right, transparent, #278aff);
+  background: linear-gradient(to right, transparent, #00c86b);
   transition: width 1.4s ease;
 }
 

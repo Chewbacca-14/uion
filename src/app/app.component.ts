@@ -9,10 +9,9 @@ import { ContactsComponent } from './feature/contacts/contacts.component';
 import { FaqComponent } from './feature/faq/faq.component';
 import { WorkStepsComponent } from './feature/work-steps/work-steps.component';
 import { StepsComponent } from './feature/steps/steps.component';
-import { SeoService } from './services/seo.service';
-import { SEO_CONFIG } from './config/seo.config';
 import { inject } from '@vercel/analytics';
 import { RouterModule } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -33,24 +32,20 @@ import { RouterModule } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
-  title = 'uion';
-
-  constructor(private seoService: SeoService) {
-    inject();
-  }
-
-  ngOnInit() {
-    // Set default SEO data for the homepage
-    this.seoService.updateSEO({
-      title: SEO_CONFIG.default.title,
-      description: SEO_CONFIG.default.description,
-      keywords: SEO_CONFIG.default.keywords,
-      url: SEO_CONFIG.default.url,
-      image: SEO_CONFIG.default.image,
-      type: SEO_CONFIG.default.type,
-      author: 'UION Softwares',
-      locale: SEO_CONFIG.default.locale,
-    });
+export class AppComponent {
+  constructor(private title: Title, private meta: Meta) {
+    this.title.setTitle(
+      'UION — Tvoříme inovativní IT řešení na míru vašemu podnikání.'
+    );
+    this.meta.addTags([
+      {
+        name: 'description',
+        content: 'Tvoříme inovativní IT řešení na míru vašemu podnikání.',
+      },
+      {
+        name: 'keywords',
+        content: 'vývoj webových stránek, mobilní aplikace, Praha, IT',
+      },
+    ]);
   }
 }

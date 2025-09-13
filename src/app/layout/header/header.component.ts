@@ -44,9 +44,6 @@ export class HeaderComponent implements AfterViewInit {
     window.location.hash = 'contact';
   }
 
-  goToAboutUs() {
-    window.location.hash = 'about';
-  }
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

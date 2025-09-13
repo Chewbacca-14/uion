@@ -6,8 +6,8 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: default;
-align-items: stretch;
-flex: 1 1 calc(33.333% - 25px);
+  align-items: stretch;
+  flex: 1 1 calc(33.333% - 25px);
 }
 
 .card:hover {
@@ -18,7 +18,7 @@ flex: 1 1 calc(33.333% - 25px);
 .icon-wrapper {
   width: 56px;
   height: 56px;
-  background-color: #ebf4ff; /* blue-50 */
+  background-color: #00c86b9d; /* blue-50 */
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -28,16 +28,15 @@ flex: 1 1 calc(33.333% - 25px);
 }
 
 .card:hover .icon-wrapper {
-  background-color: #bfdbfe; /* blue-100 */
+  background-color: #00c86bb6; /* blue-100 */
 }
 
 .icon-wrapper img {
   width: 28px;
   height: 28px;
   object-fit: contain;
-  filter: invert(27%) sepia(97%) saturate(752%) hue-rotate(193deg)
-    brightness(93%) contrast(88%);
-  /* approximate Tailwind blue-600 color for img tint */
+  filter: brightness(0) invert(1);
+  /* white tint for img */
 }
 
 .title {
