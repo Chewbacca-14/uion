@@ -21,25 +21,12 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  constructor(private title: Title, private meta: Meta) {
-    // this.title.setTitle(
-    //   'UION — Tvoříme inovativní IT řešení na míru vašemu podnikání.'
-    // );
-    // this.meta.addTags([
-    //   {
-    //     name: 'description',
-    //     content: 'Tvoříme inovativní IT řešení na míru vašemu podnikání.',
-    //   },
-    //   {
-    //     name: 'keywords',
-    //     content: 'vývoj webových stránek, mobilní aplikace, Praha, IT',
-    //   },
-    // ]);
-  }
+  constructor(private title: Title, private meta: Meta) {}
   ngOnInit(): void {
     this.title.setTitle(
       'Inovativní IT řešení na míru | Vývoj webů, aplikací a design - UION'
     );
+
     this.meta.addTags([
       {
         name: 'description',
@@ -61,7 +48,10 @@ export class AppComponent implements OnInit {
           'Neprodáváme kód - dodáváme kompletní řešení: weby, mobilní aplikace a design.',
       },
       { property: 'og:image', content: 'https://uion.cz/assets/preview.jpg' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
       { property: 'og:url', content: 'https://uion.cz' },
+      { property: 'og:type', content: 'website' },
     ]);
   }
 }
