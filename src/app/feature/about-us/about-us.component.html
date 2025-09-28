@@ -1,35 +1,51 @@
 <div id="about" class="about-column">
-  <h2>Small Team, Big Ideas</h2>
+  <h2>Jsme tým, který vám dodá náskok</h2>
   <p>
-    Jsme sice malý tým, ale naše oddanost a kreativita neznají hranic. Každému projektu věnujeme plnou pozornost,
-    hluboké know-how a individuální přístup.
+    Nejsme korporát, kde se ztratíte v anonymitě. Jsme tým, který zná vaše
+    jméno, rozumí vašim potřebám a dává do každého projektu maximum. Každý
+    detail řešíme s péčí, protože víme, že váš úspěch je i náš úspěch.
   </p>
 
   <div class="carousel-container">
-    <button class="carousel-btn prev-btn" (click)="previousCard()" [class.disabled]="currentIndex === 0" *ngIf="isMobile" style="touch-action: manipulation;">
+    <button
+      class="carousel-btn prev-btn"
+      (click)="previousCard()"
+      [class.disabled]="currentIndex === 0"
+      *ngIf="isMobile"
+      style="touch-action: manipulation"
+    >
       <span class="material-icons">chevron_left</span>
     </button>
 
     <div class="card-grid" #cardGrid>
       <app-about-us-card
-      [imageUrl]="'/assets/people/me2.jpg'"
+        [imageUrl]="'/assets/people/me2.jpg'"
         [nameSurname]="'Max Bulanovich'"
         [position]="'Mobile Developer & Project Lead'"
-        [description]="'Každý řádek kódu má přinášet užitek uživateli a aplikace by měla být co nejjednodušší na používání. Úspěch produktu vidím v dobré analýze potřeb a kvalitním UI/UX, ne v množství funkcí.'">
+        [description]="
+          'Každý řádek kódu má přinášet užitek uživateli a aplikace by měla být co nejjednodušší na používání. Úspěch produktu vidím v dobré analýze potřeb a kvalitním UI/UX, ne v množství funkcí.'
+        "
+      >
       </app-about-us-card>
 
       <app-about-us-card
-      [imageUrl]="'/assets/people/pavel.jpeg'"
+        [imageUrl]="'/assets/people/pavel.jpeg'"
         [nameSurname]="'Pavel Pikola'"
         [position]="'Sales & Inovations Manager'"
-        [description]="'Moje práce stojí na efektivní komunikaci, jasné struktuře a respektu k Vaší perspektivě. Přináším energii, nové nápady a především měřitelné výsledky, které dělají z viditelné značky výdělečnou firmu.'">
+        [description]="
+          'Moje práce stojí na efektivní komunikaci, jasné struktuře a respektu k Vaší perspektivě. Přináším energii, nové nápady a především měřitelné výsledky, které dělají z viditelné značky výdělečnou firmu.'
+        "
+      >
       </app-about-us-card>
 
       <app-about-us-card
         [imageUrl]="'/assets/people/sergei.png'"
         [nameSurname]="'Sergei Voytenkov'"
         [position]="'Flutter Developer'"
-        [description]="'Pro mě je tvorba kódu jako stavba domu nebo pěstování stromu, kde každý detail hraje roli. Zároveň je to tvůrčí proces podobný malbě či hudbě, který vyžaduje plnou představivost.'">
+        [description]="
+          'Pro mě je tvorba kódu jako stavba domu nebo pěstování stromu, kde každý detail hraje roli. Zároveň je to tvůrčí proces podobný malbě či hudbě, který vyžaduje plnou představivost.'
+        "
+      >
       </app-about-us-card>
 
       <!-- <app-about-us-card
@@ -43,12 +59,21 @@
         [imageUrl]="'/assets/people/andrej.png'"
         [nameSurname]="'Andrej Manajlo'"
         [position]="'Web Developer & Designer'"
-        [description]="'Programování mě baví, protože mohu tvořit věci, které lidem usnadňují život nebo jim přinášejí radost. Věřím, že i jednoduchá, ale promyšlená řešení mohou být velmi silná.'">
+        [description]="
+          'Programování mě baví, protože mohu tvořit věci, které lidem usnadňují život nebo jim přinášejí radost. Věřím, že i jednoduchá, ale promyšlená řešení mohou být velmi silná.'
+        "
+      >
       </app-about-us-card>
     </div>
 
-    <button class="carousel-btn next-btn" (click)="nextCard()" [class.disabled]="currentIndex === totalCards - 1" *ngIf="isMobile" style="touch-action: manipulation;">
-       <span class="material-icons">chevron_right</span>
+    <button
+      class="carousel-btn next-btn"
+      (click)="nextCard()"
+      [class.disabled]="currentIndex === totalCards - 1"
+      *ngIf="isMobile"
+      style="touch-action: manipulation"
+    >
+      <span class="material-icons">chevron_right</span>
     </button>
   </div>
 </div>

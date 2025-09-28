@@ -13,13 +13,13 @@ export class WhyChooseUsComponent {
   cards = [
   {
     icon: '/assets/icons/dollar-sign.svg',
-    title: 'Lepší ceny',
+    title: 'Férové ceny',
     description: 'Nabízíme dostupná řešení s nízkými provozními náklady.',
   },
   {
     icon: '/assets/icons/message-circle.svg',
     title: 'Rychlá komunikace',
-    description: 'Odpovídáme rychle a řešíme požadavky bez zbytečných prodlev.',
+    description: 'Jsme v kontaktu, když nás potřebujete. Vaše požadavky řešíme okamžitě – bez zbytečných průtahů.',
   },
   {
     icon: '/assets/icons/settings.svg',
@@ -29,17 +29,17 @@ export class WhyChooseUsComponent {
   {
     icon: '/assets/icons/laptop.svg',
     title: 'Moderní technologie',
-    description: 'Používáme aktuální nástroje a ověřené postupy vývoje.',
+    description: 'Používáme nejnovější technologie a osvědčené postupy, abyste měli jistotu, že váš web bude fungovat i za roky.',
   },
   {
     icon: '/assets/icons/rockett.svg',
     title: 'Od nápadu po spuštění',
-    description: 'Zvládneme celý proces návrhu, vývoje a nasazení řešení.',
+    description: 'Od prvního nápadu přes design a vývoj až po spuštění.',
   },
   {
     icon: '/assets/icons/users.svg',
     title: 'Odborné poradenství',
-    description: 'Pomůžeme najít optimální řešení pro váš projekt efektivně.',
+    description: 'Pomůžeme vám nastavit strategii, která přivede klienty a podpoří váš růst. Web je jen začátek.',
   },
 ];
 

@@ -13,27 +13,27 @@ export class OurServicesComponent {
   cards = [
     {
       icon: '/assets/icons/landingicon.png',
-      title: 'Landing Page',
+      title: 'Prodejní stránka (Landing Page)',
       description:
-        'Optimalizované vstupní stránky, které zaujmou návštěvníky, jasně komunikují hodnotu a zvýší vaše konverze.',
+        'Vytvoříme vstupní stránku, která okamžitě zaujme, jasně ukáže vaši hodnotu a přivede návštěvníky k akci. Každý klik = blíž k vašemu cíli.',
     },
     {
       icon: '/assets/icons/mobileappicon.png',
       title: 'Mobilní a webové aplikace',
       description:
-        'Vyvíjíme rychlé a spolehlivé mobilní aplikace pro iOS i Android pomocí Flutteru i moderní webové aplikace, které posouvají vaše podnikání vpřed.',
+        'Vyvíjíme rychlé a spolehlivé aplikace pro iOS, Android i web. Moderní technologie, chytrý design a výkon, který vám otevírá nové příležitosti.',
     },
     {
       icon: '/assets/icons/website_icon.png',
-      title: 'Webové stránky',
+      title: 'Web, který prodává',
       description:
-        'Navrhujeme moderní, přehledné a responzivní webové stránky šité na míru vašim potřebám a cílové skupině.',
+        'Navrhujeme moderní a responzivní weby, které budují důvěru, vedou k akci a přivádějí nové klienty',
     },
     {
       icon: '/assets/icons/uiuxicon.png',
       title: 'UI/UX a Branding',
       description:
-        'Vytváříme design, který zaujme a usnadní používání – funkční, intuitivní a vizuálně atraktivní, podporující vaši značku.',
+        'Spojujeme estetiku a funkčnost. Intuitivní uživatelské prostředí a silný vizuální styl, který z vaší značky udělá zapamatovatelný zážitek.',
     },
   ];
 
