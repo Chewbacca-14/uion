@@ -13,19 +13,19 @@
           <a href="#our-services" (click)="onNavLinkClick()">Naše Služby</a>
         </li>
         <li>
-          <a href="#technologies" (click)="onNavLinkClick()">Technologie</a>
+          <a href="#technologies">Portfolio</a>
         </li>
         <li><a href="#about" (click)="onNavLinkClick()">O nás</a></li>
-        <li><a href="#steps" (click)="onNavLinkClick()">Náš proces</a></li>
-        <li><a href="#why-us" (click)="onNavLinkClick()">Proč právě my</a></li>
+        <!-- <li><a href="#steps" (click)="onNavLinkClick()">Náš proces</a></li> -->
+        <li><a href="#why-us" (click)="onNavLinkClick()">Proč my</a></li>
       </ul>
       <button class="btn-primary-mobile" (click)="goToContact()">
-        Kontaktujte nás nyní
+        Kontaktujte nás
       </button>
     </div>
   </nav>
   <button class="btn-primary contacts-desctop" (click)="goToContact()">
-    Kontaktujte nás nyní
+    Kontaktujte nás
   </button>
 
   <button
@@ -42,21 +42,63 @@
 </header>
 <div class="header-wrapper">
   <div class="header-container">
-    <div class="after-header-text">
-      <div class="row-with-icon">
-      
-      </div>
-    
-     
-      <h1>Neprodáváme kód. Dodáváme řešení.</h1>
-      <p>
-       Tvoříme inovativní IT řešení na míru vašemu podnikání.
-      </p>
-    </div>
+    <div class="hero-row">
+      <div class="hero-content">
+        <div class="after-header-text">
+          <h1>Dodáváme digitální řešení na míru pro vaše podnikání.</h1>
+          <p>
+            Zvýšení efektivity, úspora nákladů, škálovatelnost, podpora & údržba.
+          </p>
+        </div>
 
-    <div class="header-buttons">
-      <button class="btn-primary">Napište nám</button>
-      
+        <div class="header-buttons">
+          <button class="btn-primary">Chci spočítat cenu</button>
+            <button class="btn-secondary">Naše práce</button>
+        </div>
+      </div>
+      <div class="hero-image-wrapper levitating">
+        <img
+          class="hero-image"
+          src="/assets/mobile.png"
+          alt="Digitální řešení na míru"
+        />
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+  .hero-image-wrapper {
+    display: inline-block;
+  }
+
+  @media (min-width: 768px) {
+    .hero-image-wrapper {
+      margin-left: auto;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-image-wrapper {
+      display: none;
+    }
+  }
+
+  @keyframes heroLevitation {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-18px);
+    }
+  }
+
+  .levitating {
+    animation: heroLevitation 3s ease-in-out infinite;
+    will-change: transform;
+  }
+</style>

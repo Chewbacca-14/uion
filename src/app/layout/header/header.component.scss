@@ -172,59 +172,99 @@ nav a:hover {
   }
 }
 
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 120px; // default for non-desktop
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    margin-top: 40px;
+  }
+}
+
+.hero-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .hero-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-image-wrapper {
+    order: 2;
+  }
+
+  .hero-image {
+    margin-top: 0;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  text-align: left;
+  justify-content: flex-start;
+}
+@media (min-width: 768px) {
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 60%;
+  }
+}
+
+.hero-image {
+  margin-top: 70px;
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  display: block;
+  animation: fadeInSlide 0.8s ease-out forwards;
+  opacity: 0;
+  align-self: center;
+}
+@media (min-width: 768px) {
+  .hero-image {
+    max-width: 76%;
+  }
+}
+
 .after-header-text {
   padding: 2rem;
-  text-align: center;
-
-  margin: 0 auto;
-}
-
-@media (min-width: 600px) {
-  .after-header-text {
-    width: 80%;
-  }
-}
-
-/* Small Desktop */
-@media (min-width: 768px) {
-  .after-header-text {
-    width: 70%;
-  }
-}
-
-/* Large Desktop */
-@media (min-width: 1024px) {
-  .after-header-text {
-    max-width: 600px;
-  }
+  text-align: left;
 }
 
 .after-header-text h1 {
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3.5rem;
   animation: fadeInSlide 0.8s ease-out forwards;
   opacity: 0;
-}
-
-@media (min-width: 600px) {
-  .after-header-text h1 {
-    padding: 0 20px;
-  }
-}
-
-/* Small Desktop */
-@media (min-width: 768px) {
-  .after-header-text h1 {
-    padding: 0 50px;
-  }
-}
-
-/* Large Desktop */
-@media (min-width: 1024px) {
-  .after-header-text h1 {
-    padding: 0 60px;
-  }
 }
 
 .after-header-text p {
@@ -258,11 +298,12 @@ nav a:hover {
 
 .header-buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 1rem;
   animation: fadeInSlide 0.8s ease-out forwards;
   opacity: 0;
+  padding-left: 32px;
 }
 
 .btn-primary {
@@ -270,7 +311,7 @@ nav a:hover {
   padding: 0 24px;
   border: none;
   background-color: #00c86b;
-  color: black;
+  color: white;
   border-radius: 50px;
   font-size: 1rem;
   font-family: "Geist", sans-serif;
@@ -280,7 +321,7 @@ nav a:hover {
 
 .btn-primary:hover {
   background-color: #00c86b;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -315,10 +356,17 @@ nav a:hover {
 }
 
 .header-container {
+  margin-top: 120px; // default for non-desktop
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .header-container {
+    margin-top: 40px;
+  }
 }
 
 nav.open {

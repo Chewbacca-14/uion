@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -44,8 +44,28 @@ export class HeaderComponent implements AfterViewInit {
     window.location.hash = 'contact';
   }
 
-
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const header = document.getElementById('site-header');
+    const container = header ? this.getScrollContainer(header) : window;
+    if (container === window) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    (container as HTMLElement).scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  private getScrollContainer(element: HTMLElement): HTMLElement | Window {
+    let current: HTMLElement | null = element.parentElement;
+    while (current && current !== document.body) {
+      const style = window.getComputedStyle(current);
+      const isScrollable =
+        /(auto|scroll)/.test(style.overflowY) ||
+        /(auto|scroll)/.test(style.overflow);
+      if (isScrollable && current.scrollHeight > current.clientHeight) {
+        return current;
+      }
+      current = current.parentElement;
+    }
+    return window;
   }
 }
