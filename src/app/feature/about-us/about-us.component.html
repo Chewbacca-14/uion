@@ -6,8 +6,8 @@
   </p>
 
   <div class="carousel-container">
-    <button class="carousel-btn prev-btn" (click)="previousCard()" [class.disabled]="currentIndex === 0" *ngIf="isMobile">
-      ‹
+    <button class="carousel-btn prev-btn" (click)="previousCard()" [class.disabled]="currentIndex === 0" *ngIf="isMobile" style="touch-action: manipulation;">
+      <span class="material-icons">chevron_left</span>
     </button>
 
     <div class="card-grid" #cardGrid>
@@ -19,18 +19,25 @@
       </app-about-us-card>
 
       <app-about-us-card
+      [imageUrl]="'/assets/people/pavel.jpeg'"
+        [nameSurname]="'Pavel Pikola'"
+        [position]="'Sales & Inovations Manager'"
+        [description]="'Moje práce stojí na efektivní komunikaci, jasné struktuře a respektu k Vaší perspektivě. Přináším energii, nové nápady a především měřitelné výsledky, které dělají z viditelné značky výdělečnou firmu.'">
+      </app-about-us-card>
+
+      <app-about-us-card
         [imageUrl]="'/assets/people/sergei.png'"
         [nameSurname]="'Sergei Voytenkov'"
         [position]="'Flutter Developer'"
         [description]="'Pro mě je tvorba kódu jako stavba domu nebo pěstování stromu, kde každý detail hraje roli. Zároveň je to tvůrčí proces podobný malbě či hudbě, který vyžaduje plnou představivost.'">
       </app-about-us-card>
 
-      <app-about-us-card
+      <!-- <app-about-us-card
         [imageUrl]="'/assets/people/user.png'"
         [nameSurname]="'Ulan'"
         [position]="'UI/UX Designer'"
         [description]="'Design pro mě znamená pomáhat lidem lépe chápat a používat technologie prostřednictvím intuitivních a promyšlených zážitků. Spojuji v něm logiku s kreativitou a každý projekt mi dává pocit smysluplnosti.'">
-      </app-about-us-card>
+      </app-about-us-card> -->
 
       <app-about-us-card
         [imageUrl]="'/assets/people/andrej.png'"
@@ -40,8 +47,8 @@
       </app-about-us-card>
     </div>
 
-    <button class="carousel-btn next-btn" (click)="nextCard()" [class.disabled]="currentIndex === totalCards - 1" *ngIf="isMobile">
-      ›
+    <button class="carousel-btn next-btn" (click)="nextCard()" [class.disabled]="currentIndex === totalCards - 1" *ngIf="isMobile" style="touch-action: manipulation;">
+       <span class="material-icons">chevron_right</span>
     </button>
   </div>
 </div>

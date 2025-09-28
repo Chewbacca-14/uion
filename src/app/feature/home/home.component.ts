@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { AboutUsComponent } from '../../feature/about-us/about-us.component';
-import { FooterComponent } from '../../layout/footer/footer.component';
 import { TechnologiesComponent } from '../../feature/technologies/technologies.component';
 import { OurServicesComponent } from '../../feature/our-services/our-services.component';
 import { WhyChooseUsComponent } from '../../feature/why-choose-us/why-choose-us.component';

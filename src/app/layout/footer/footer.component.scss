@@ -181,6 +181,21 @@ body.cookie-banner-visible {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
+.contacts a {
+  color: inherit;       /* use parent text color */
+  text-decoration: none; /* remove underline */
+    transition: color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    color: #00c86b;
+  }
+}
+
+
 .copywrite p {
   margin: 0;
   font-size: 0.85rem;

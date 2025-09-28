@@ -25,6 +25,14 @@ export class HeaderComponent implements AfterViewInit {
           header.classList.remove('shrink');
         }
 
+        if (window.location.hash) {
+          history.replaceState(
+            null,
+            document.title,
+            window.location.pathname + window.location.search
+          );
+        }
+
         lastScrollY = currentScrollY;
       },
       true
