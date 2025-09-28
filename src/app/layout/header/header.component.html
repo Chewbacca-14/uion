@@ -47,21 +47,31 @@
         <div class="after-header-text">
           <h1>Dodáváme digitální řešení na míru pro vaše podnikání.</h1>
           <p>
-            Zvýšení efektivity, úspora nákladů, škálovatelnost, podpora & údržba.
+            Zvýšení efektivity, úspora nákladů, škálovatelnost, podpora &
+            údržba.
           </p>
         </div>
 
         <div class="header-buttons">
-          <button class="btn-primary">Chci spočítat cenu</button>
-            <button class="btn-secondary">Naše práce</button>
+          <button class="btn-primary" (click)="goToContact()">
+            Chci spočítat cenu
+          </button>
+          <button class="btn-secondary">Naše práce</button>
         </div>
       </div>
-      <div class="hero-image-wrapper levitating">
-        <img
-          class="hero-image"
-          src="/assets/mobile.png"
-          alt="Digitální řešení na míru"
-        />
+      <div class="hero-image-wrapper">
+        <div class="stack">
+          <img
+            class="hero-image primary"
+            src="/assets/mobile.png"
+            alt="Digitální řešení na míru"
+          />
+          <img
+            class="hero-image secondary"
+            src="/assets/mobile-left.png"
+            alt="Doplňkový obrázek"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -70,6 +80,24 @@
 <style>
   .hero-image-wrapper {
     display: inline-block;
+    flex-direction: column; /* stack images vertically */
+    align-items: center; /* center horizontally */
+    text-align: center;
+  }
+  .hero-image-wrapper img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* secondary should be centered under the primary, not shifted below */
+  .hero-image.secondary {
+    margin-top: 0;
+    opacity: 0;
+    /* entrance + delayed levitation; keep z-index lower */
+    animation: heroImageEnter 0.8s ease-out 0.3s forwards,
+               heroLevitation 3s ease-in-out 0.8s infinite;
+    z-index: 1; /* lower than primary */
+    pointer-events: none;
   }
 
   @media (min-width: 768px) {
@@ -97,14 +125,14 @@
     }
   }
 
-  .levitating {
-    animation: heroLevitation 3s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  .hero-image {
-    opacity: 0;
-    animation: heroImageEnter 0.8s ease-out forwards;
+  @keyframes heroLevitationStack {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-18px);
+    }
   }
 
   @keyframes heroImageEnter {
@@ -116,5 +144,87 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* New: primary-specific entrance keeps a horizontal offset and lands 30px down */
+  @keyframes heroImageEnterPrimary {
+    from {
+      opacity: 0;
+      transform: translateX(110px) translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(110px) translateY(30px); /* baseline moved down 30px */
+    }
+  }
+
+  /* New: primary-specific levitation preserves the horizontal offset and oscillates around 30px */
+  @keyframes heroLevitationPrimary {
+    0%,
+    100% {
+      transform: translateX(110px) translateY(30px);
+    }
+    50% {
+      transform: translateX(110px) translateY(12px);
+    }
+  }
+
+  @keyframes heroImageEnterStack {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(0);
+    }
+  }
+
+  /* removed wrapper-level levitation; images animate levitation individually */
+  /* keep will-change for smoother transforms when images levitate */
+  .hero-image.primary,
+  .hero-image.secondary {
+    will-change: transform;
+  }
+
+  .hero-image {
+    opacity: 0;
+    animation: heroImageEnter 0.8s ease-out forwards;
+  }
+
+  .stack {
+    position: relative;
+    display: inline-block;
+    /* keep existing stack sizing */
+    width: 100%;
+    max-width: 660px;
+    margin: 0 auto;
+  }
+
+  .hero-image.primary {
+    display: block;
+    width: 100%;
+    /* slightly smaller so mobile.png appears reduced */
+    max-width: 88%;
+    height: auto;
+    z-index: 3; /* ensure primary is on top of secondary */
+    /* use primary-specific animations so horizontal offset and new vertical baseline are preserved */
+    animation: heroImageEnterPrimary 0.8s ease-out 0s forwards,
+               heroLevitationPrimary 3s ease-in-out 0s infinite;
+  }
+
+  .hero-image.secondary {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* reduced by ~20%: 65% -> 52% */
+    width: 52%;
+    height: auto;
+    transform: translate(-50%, -50%); /* center under primary */
+    opacity: 0;
+    /* use stack-safe animations so centering is preserved */
+    animation: heroImageEnterStack 0.8s ease-out 0.3s forwards,
+               heroLevitationStack 3s ease-in-out 0.8s infinite;
+    z-index: 1; /* make sure this is underneath primary */
   }
 </style>

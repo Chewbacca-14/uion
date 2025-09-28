@@ -74,6 +74,11 @@
   display: flex;
   position: relative;
   padding: 20px 0;
+  margin-top: 10px;
+
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
 }
 
 .header {
@@ -190,7 +195,7 @@ nav a:hover {
 
 @media (min-width: 1024px) {
   .header-container {
-    margin-top: 40px;
+    margin-top: 120px;
   }
 }
 
@@ -234,14 +239,14 @@ nav a:hover {
   .hero-content {
     align-items: flex-start;
     text-align: left;
-    max-width: 60%;
+    max-width: 100%;
   }
 }
 
 .hero-image {
   margin-top: 70px;
   width: auto;
-  max-width: 70%;
+  max-width: 86%;
   height: auto;
   display: block;
   animation: fadeInSlide 0.8s ease-out forwards;
@@ -250,7 +255,10 @@ nav a:hover {
 }
 @media (min-width: 768px) {
   .hero-image {
-    max-width: 76%;
+    max-width: 46%;
+  }
+  .secondary {
+    max-width: 26%;
   }
 }
 
@@ -356,7 +364,7 @@ nav a:hover {
 }
 
 .header-container {
-  margin-top: 80px; // default for non-desktop
+  margin-top: 35px; // default for non-desktop
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -621,4 +629,110 @@ nav.open {
   background-color: #00c86b;
   color: white;
   cursor: pointer;
+}
+
+/* Stack container to mimic Flutter's Stack with centered alignment */
+.hero-image-wrapper {
+  position: relative; /* establish stacking context */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* inner stack that contains both images */
+.stack {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  /* increased by 10% (600px -> 660px) */
+  max-width: 660px; /* was 600px */
+  /* keep levitation on the whole stack */
+}
+
+/* Primary image (base) */
+.hero-image.primary {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  /* slightly smaller so mobile.png appears a bit reduced */
+  max-width: 88%; /* was 95% */
+  height: auto;
+  z-index: 3; /* moved above secondary so it renders on top */
+  /* use primary-specific animations so the horizontal offset is preserved */
+  animation: heroImageEnterPrimary 0.8s ease-out forwards,
+             heroLevitationPrimary 3s ease-in-out 0s infinite;
+}
+
+/* Secondary image centered on top of primary (Stack.center) */
+.hero-image.secondary {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* lower than primary so it sits underneath */
+  /* reduced by ~20%: 65% -> 52% */
+  max-width: 52%;
+  height: auto;
+  pointer-events: none; /* avoid accidental interactions */
+  /* use stack-specific entrance and levitation so centering isn't overwritten */
+  animation: heroImageEnterStack 0.8s ease-out 0.3s forwards,
+             heroLevitationStack 3s ease-in-out 0.8s infinite;
+}
+
+/* New: primary-specific entrance keeps a 110px right offset and lands 30px down */
+@keyframes heroImageEnterPrimary {
+  from {
+    opacity: 0;
+    transform: translateX(110px) translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(110px) translateY(30px); /* baseline moved down 30px */
+  }
+}
+
+/* New: primary-specific levitation preserves the 110px right offset and oscillates around 30px */
+@keyframes heroLevitationPrimary {
+  0%,
+  100% {
+    transform: translateX(110px) translateY(30px);
+  }
+  50% {
+    transform: translateX(110px) translateY(12px); /* 30px - 18px */
+  }
+}
+/* Stack-specific entrance that preserves the center translate */
+@keyframes heroImageEnterStack {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* New: primary-specific entrance keeps a 100px right offset */
+@keyframes heroImageEnterPrimary {
+  from {
+    opacity: 0;
+    transform: translateX(100px) translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(100px) translateY(0);
+  }
+}
+
+/* New: primary-specific levitation preserves the 100px right offset */
+@keyframes heroLevitationPrimary {
+  0%,
+  100% {
+    transform: translateX(100px) translateY(0);
+  }
+  50% {
+    transform: translateX(100px) translateY(-18px);
+  }
 }
