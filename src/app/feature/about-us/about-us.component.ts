@@ -20,7 +20,7 @@ export class AboutUsComponent implements AfterViewInit {
   cardGrid!: ElementRef<HTMLDivElement>;
 
   currentIndex = 0;
-  totalCards = 4;
+  totalCards = 2;
 
   isMobile = false;
 
