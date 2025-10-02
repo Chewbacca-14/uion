@@ -1,0 +1,158 @@
+.main-content {
+  margin: 120px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+h2 {
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  color: #242424;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  align-items: center;
+  max-width: 800px;
+  margin: 0 15px;
+  line-height: 1.5rem;
+  color: #3f3f3fe0;
+  font-weight: 300;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif; /* Changed from "Generalsans" to "Geist" */
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px 0;
+  padding: 0 10px;
+}
+
+.plan-card {
+  flex: 1 1 240px; /* адаптивная ширина */
+  max-width: 320px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 3px 20px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-card.highlighted {
+  border: 2px solid #00c86b;
+  box-shadow: 0 10px 25px rgba(0, 200, 107, 0.3);
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.plan-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Geist", sans-serif; /* Added font-family */
+  margin-bottom: 10px;
+}
+
+.plan-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Geist", sans-serif; /* Added font-family */
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  color: #333;
+  text-align: left;
+}
+
+.plan-period {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 15px;
+
+  font-size: 0.95rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 400;
+  color: #666;
+  text-align: left; // Already set to left
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.plan-features li {
+  margin: 8px 0;
+  position: relative;
+  padding-left: 20px;
+  font-family: "Geist", sans-serif; /* Added font-family */
+  font-weight: 400; /* Added font-weight */
+}
+
+.plan-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #00c86b;
+}
+
+.plan-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #00c86b;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Geist", sans-serif; /* Added font-family */
+  font-weight: 500; /* Changed from 600 to 500 for consistency */
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.plan-button:hover {
+  background-color: #00c86b;
+}
+
+/* Мобильные стили */
+@media (max-width: 900px) {
+  .plan-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+button {
+  height: 44px;
+  padding: 0 24px;
+  border: none;
+  background-color: #00c86b;
+  color: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: "Geist", sans-serif;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00c86b;
+  color: black;
+  cursor: pointer;
+}

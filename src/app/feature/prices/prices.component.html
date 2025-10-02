@@ -1,0 +1,21 @@
+<div id="prices" class="main-content">
+  <h2>MVP pro váš startup</h2>
+  <p>Vyvíjíme MVP aplikace, navrhujeme design a publikujeme vaše řešení do App Store a Google Play. Začněte s námi svůj projekt během pár týdnů.</p>
+  
+  <div class="pricing-container">
+  <div
+    class="plan-card"
+    *ngFor="let card of priceCards"
+    [ngClass]="{ highlighted: card.highlighted }"
+  >
+    <h3 class="plan-title">{{ card.title }}</h3>
+    <p class="plan-price">{{ card.price }}</p>
+    <p class="plan-period">{{ card.period }}</p>
+    <ul class="plan-features">
+      <li *ngFor="let feature of card.features">{{ feature }}</li>
+    </ul>
+    <button class="plan-button">{{ card.buttonText }}</button>
+  </div>
+</div>
+
+</div>

@@ -9,6 +9,7 @@ import { FaqComponent } from '../../feature/faq/faq.component';
 import { WorkStepsComponent } from '../../feature/work-steps/work-steps.component';
 import { StepsComponent } from '../../feature/steps/steps.component';
 import { ScrollAnimateDirective } from '../../scroll-animate.directive';
+import { PricesComponent } from '../../feature/prices/prices.component';
 
 @Component({
   selector: 'app-home',
@@ -24,10 +25,12 @@ import { ScrollAnimateDirective } from '../../scroll-animate.directive';
     StepsComponent,
     FaqComponent,
     ScrollAnimateDirective, // <- add directive here
+    PricesComponent,
   ],
   template: `
     <app-header></app-header>
-    <app-our-services ></app-our-services>
+    <app-our-services></app-our-services>
+    <app-prices appScrollAnimate></app-prices>
     <app-technologies appScrollAnimate></app-technologies>
     <app-about-us appScrollAnimate></app-about-us>
     <app-steps appScrollAnimate></app-steps>
