@@ -1,0 +1,19 @@
+<div id="portfolio" class="main-content">
+  <h2>Portfolio</h2>
+  <p>
+    Naše portfolio představuje úspěšné projekty, které jsme realizovali pro naše
+    klienty. Zaměřujeme se na vývoj moderních webových a mobilních aplikací,
+    návrh uživatelského rozhraní a kompletní digitální řešení na míru. Pomáháme
+    firmám růst díky inovativním technologiím a kvalitnímu designu.
+  </p>
+
+  <div class="projects-container">
+    <div class="project-card" *ngFor="let project of projects">
+      <app-portfolio-project
+        [image]="project.image"
+        [title]="project.title"
+        [description]="project.description"
+      ></app-portfolio-project>
+    </div>
+  </div>
+</div>
