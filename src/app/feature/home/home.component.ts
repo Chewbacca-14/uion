@@ -31,21 +31,21 @@ import { LogosComponent } from '../../feature/logos/logos.component';
     PricesComponent,
     PortfolioComponent,
     LogosCarouselComponent,
-    LogosComponent
+    LogosComponent,
   ],
   template: `
     <app-header></app-header>
     <app-logos></app-logos>
-    <app-our-services></app-our-services>
     <app-portfolio appScrollAnimate></app-portfolio>
-    <app-prices appScrollAnimate></app-prices>
     <app-technologies appScrollAnimate></app-technologies>
-    <app-about-us appScrollAnimate></app-about-us>
-    <app-steps appScrollAnimate></app-steps>
+    <app-our-services></app-our-services>
     <app-why-choose-us appScrollAnimate></app-why-choose-us>
+    <app-steps appScrollAnimate></app-steps>
+    <app-prices appScrollAnimate></app-prices>
+    <app-about-us appScrollAnimate></app-about-us>
+    <app-faq appScrollAnimate></app-faq>
     <app-work-steps appScrollAnimate></app-work-steps>
     <app-contacts appScrollAnimate></app-contacts>
-    <app-faq appScrollAnimate></app-faq>
   `,
   styleUrls: ['./home.component.scss'],
 })
