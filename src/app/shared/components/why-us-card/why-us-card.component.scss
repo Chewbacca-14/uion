@@ -1,59 +1,39 @@
 .card {
-  background: white;
-  border: 1px solid #f3f4f6; /* light gray */
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: default;
-  align-items: stretch;
-  flex: 1 1 calc(33.333% - 25px);
+  max-width: 400px;
+  height: 150px;
+  background-image: url("../../../../assets/icons/product-bg.svg");
+  background-size: contain;
+  background-position: center;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  color: #242424; /* dark text on light gradient */
+  border: 1px solid #ecedee;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px rgb(0 0 0 / 0.15);
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.03);
+  border: 1px solid #00c86bd6;
 }
 
-.icon-wrapper {
-  width: 56px;
-  height: 56px;
-  background-color: #00c86b;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: background-color 0.3s ease;
+.content {
+  margin-top: 12px;
 }
 
-
-
-.icon-wrapper img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  /* white tint for img */
-}
-
-.title {
+.content h3 {
   color: #000000;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 500;
   font-family: "Generalsans", sans-serif;
   letter-spacing: 0.32px;
-  margin-bottom: 0.75rem;
-}
-
-.subtitle {
-  color: #4b5563; /* gray-600 */
-  line-height: 1.5;
-  font-size: 1rem;
-}
-.card-content h3 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.content p {
   line-height: 1.5rem;
   color: #3f3f3fe0;
   font-weight: 300;

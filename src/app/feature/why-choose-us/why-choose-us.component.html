@@ -1,17 +1,16 @@
 <div id="why-us" class="main-content">
   <h2>Proč právě my?</h2>
-<p>
-Proč si firmy volí nás, když chtějí jistotu, že jejich web konečně funguje, prodává a roste spolu s nimi?
-</p>
+  <p>
+    Proč si firmy volí nás, když chtějí jistotu, že jejich web konečně funguje,
+    prodává a roste spolu s nimi?
+  </p>
 
-    <div class="card-grid">
-       <app-why-us-card
-    *ngFor="let card of cards"
-    [icon]="card.icon"
-    [title]="card.title"
-    [description]="card.description"
-  ></app-why-us-card>
-     
+  <div class="projects-container">
+    <div class="project-card" *ngFor="let project of services">
+      <app-why-us-card
+        [title]="project.title"
+        [subtitle]="project.description"
+      ></app-why-us-card>
     </div>
+  </div>
 </div>
- 

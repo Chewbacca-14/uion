@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './why-us-card.component.scss',
 })
 export class WhyUsCardComponent {
-  @Input() icon: string = '';
   @Input() title: string = '';
-  @Input() description: string = '';
+  @Input() subtitle: string = '';
 }

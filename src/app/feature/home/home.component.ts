@@ -11,6 +11,8 @@ import { StepsComponent } from '../../feature/steps/steps.component';
 import { ScrollAnimateDirective } from '../../scroll-animate.directive';
 import { PricesComponent } from '../../feature/prices/prices.component';
 import { PortfolioComponent } from '../../feature/portfolio/portfolio.component';
+import { LogosCarouselComponent } from '../../shared/components/logos-carousel/logos-carousel.component';
+import { LogosComponent } from '../../feature/logos/logos.component';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +30,12 @@ import { PortfolioComponent } from '../../feature/portfolio/portfolio.component'
     ScrollAnimateDirective, // <- add directive here
     PricesComponent,
     PortfolioComponent,
+    LogosCarouselComponent,
+    LogosComponent
   ],
   template: `
     <app-header></app-header>
+    <app-logos></app-logos>
     <app-our-services></app-our-services>
     <app-portfolio appScrollAnimate></app-portfolio>
     <app-prices appScrollAnimate></app-prices>

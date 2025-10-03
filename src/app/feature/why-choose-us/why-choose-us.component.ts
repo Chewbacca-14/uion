@@ -10,7 +10,7 @@ import { WhyUsCardComponent } from '../../shared/components/why-us-card/why-us-c
   styleUrl: './why-choose-us.component.scss',
 })
 export class WhyChooseUsComponent {
-  cards = [
+  services = [
   {
     icon: '/assets/icons/dollar-sign.svg',
     title: 'Férové ceny',
