@@ -41,7 +41,6 @@ import { LogosComponent } from '../../feature/logos/logos.component';
     <app-our-services></app-our-services>
     <app-why-choose-us appScrollAnimate></app-why-choose-us>
     <app-steps appScrollAnimate></app-steps>
-    <app-prices appScrollAnimate></app-prices>
     <app-about-us appScrollAnimate></app-about-us>
     <app-faq appScrollAnimate></app-faq>
     <app-work-steps appScrollAnimate></app-work-steps>

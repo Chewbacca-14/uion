@@ -1,5 +1,11 @@
 <div class="profile-column">
-    <img [src]="imageUrl || '/assets/placeholder.svg'" [alt]="nameSurname" class="profile-image">
+    <div class="profile-image-container" (click)="navigateToLinkedIn()">
+        <img [src]="imageUrl || '/assets/placeholder.svg'" [alt]="nameSurname" class="profile-image">
+        <div class="green-overlay"></div>
+        <div class="linkedin-overlay">
+           <img src="../../../../assets/icons/linkedin_icon.svg" alt="LinkedIn">
+        </div>
+    </div>
     <h3 class="profile-name">{{ nameSurname }}</h3>
     <p class="profile-position">{{ position }}</p>
     <p class="profile-description">{{ description }}</p>

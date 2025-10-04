@@ -13,4 +13,11 @@ export class AboutUsCardComponent {
   @Input() nameSurname!: string;
   @Input() description!: string;
   @Input() position!: string;
+  @Input() linkedInUrl!: string;
+
+  navigateToLinkedIn(): void {
+    if (this.linkedInUrl) {
+      window.open(this.linkedInUrl, '_blank');
+    }
+  }
 }
