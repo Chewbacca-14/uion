@@ -18,34 +18,28 @@ interface PortfolioProject {
 export class PortfolioComponent {
   projects: PortfolioProject[] = [
     {
-      image: 'https://help.generationesports.com/hc/article_attachments/360095197772',
-      title: 'Valorant Test Project',
-      description: 'Game development project focused on creating a competitive FPS experience.',
-    },
-     {
-      image: 'https://help.generationesports.com/hc/article_attachments/360095197772',
-      title: 'Valorant Test Project',
-      description: 'Game development project focused on creating a competitive FPS experience.',
+      image: '/assets/projects/1.jpg',
+      title: 'Papi Burgers',
+      description:
+        'Mobilní aplikace pro síť restaurací, ve které se kombinuje aplikace hned pro 3 podniky.',
     },
     {
-      image: 'https://help.generationesports.com/hc/article_attachments/360095197772',
-      title: 'Valorant Test Project',
-      description: 'Game development project focused on creating a competitive FPS experience.',
+      image: '/assets/projects/2.jpg',
+      title: 'EasyPGP',
+      description:
+        'Mobilní aplikace pro Android a iOS pro práci s kryptografií – dešifrování zpráv pomocí PGP klíče.',
     },
     {
-      image: 'https://help.generationesports.com/hc/article_attachments/360095197772',
-      title: 'Valorant Test Project',
-      description: 'Game development project focused on creating a competitive FPS experience.',
-    },
-     {
-      image: 'https://help.generationesports.com/hc/article_attachments/360095197772',
-      title: 'Valorant Test Project',
-      description: 'Game development project focused on creating a competitive FPS experience.',
+      image: '/assets/projects/3.jpg',
+      title: 'OnlyCalendar',
+      description:
+        'Telegram mini app pro plánování meetingů v Teams, Zoomu, Google Meet apod.',
     },
     {
-      image: 'https://help.generationesports.com/hc/article_attachments/360095197772',
-      title: 'Valorant Test Project',
-      description: 'Game development project focused on creating a competitive FPS experience.',
+      image: '/assets/projects/4.jpg',
+      title: 'NullEnd Browser',
+      description:
+        'Mobilní zabezpečený prohlížeč pro Android a iOS, který kombinuje funkce známých prohlížečů a zároveň nabízí vlastní unikátní možnosti.',
     },
   ];
 }

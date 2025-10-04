@@ -61,15 +61,15 @@
 }
 
 .scroll-right .carousel {
-  animation: scroll-left 25s linear infinite;
+  animation: scroll-left 50s linear infinite;
 
   @media (max-width: 900px) {
-    animation-duration: 17s;
+    animation-duration: 34s;
   }
 
   @media (max-width: 600px) {
     margin-top: 15px;
-    animation-duration: 13s;
+    animation-duration: 26s;
   }
 }
 
